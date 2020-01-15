@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import Container from 'react-bootstrap/Container'
 
 import SEO from './SEO'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
-import Container from 'react-bootstrap/Container'
+import NavBar from './NavBar'
+import Footer from './Footer'
+import MailingList from './MailingList'
 
 const MobileNoOverflowWrapper = styled('body')`
   overflow-x: hidden;
@@ -32,6 +33,7 @@ function Layout ({children}) {
         <Container>
           {children}
         </Container>
+        <MailingList />
         <Footer />
       </MobileNoOverflowWrapper>
     </>

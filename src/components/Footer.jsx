@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Container from "react-bootstrap/Container"
 import { Location } from "@reach/router"
 
-import StyledAnchor from "../components/shared/StyledAnchor"
+import StyledAnchor from "./shared/StyledAnchor"
 
 const FooterWrapper = styled("footer")`
   background-color: rgb(236, 237, 237);
@@ -12,6 +12,7 @@ const FooterWrapper = styled("footer")`
 
 const Grid = styled("div")`
   display: grid;
+  border-top: 1px solid #979797;
 `
 
 const LeftSide = styled("div")`
