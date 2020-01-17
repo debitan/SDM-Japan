@@ -13,10 +13,6 @@ const MailingListWrapper = styled("div")`
 const BoldH3 = styled("h3")`
   font-weight: 600;
   margin-bottom: 20px;
-
-  @media (max-width: 480px) {
-    font-size: 1.6rem;
-  }
 `
 
 const Form = styled("form")`

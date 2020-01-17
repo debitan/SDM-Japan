@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Helmet from 'react-helmet'
 import Container from 'react-bootstrap/Container'
 
@@ -16,7 +16,23 @@ const MobileNoOverflowWrapper = styled('body')`
   }
 `
 
-function Layout ({children}) {
+const GlobalStyle = createGlobalStyle`
+  html {
+    font-size: 90%;
+
+    @media (min-width: 480px) {
+        font-size: 93%;
+      }
+      @media (min-width: 768px) {
+        font-size: 97%;
+      }
+      @media (min-width: 992px) {
+        font-size: 100%;
+      }
+  }
+`
+
+function Layout({ children }) {
   return (
     <>
       <Helmet>
@@ -28,6 +44,7 @@ function Layout ({children}) {
         />
       </Helmet>
       <SEO lang="ja" />
+      <GlobalStyle />
       <MobileNoOverflowWrapper>
         <NavBar />
         <Container>
