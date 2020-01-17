@@ -8,6 +8,13 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "3xourkaf",
+        dataset: "production",
+      },
+    },
   ],
 }

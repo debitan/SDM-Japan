@@ -1,5 +1,9 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
+import BlockContent from "@sanity/block-content-to-react"
+
+import serializers from "./serializers"
 
 const MailingListWrapper = styled("div")`
   background-color: rgb(236, 237, 237);
@@ -58,11 +62,22 @@ const Submit = styled("button")`
 `
 
 const MailingList = () => {
+  const { sanityFooter } = useStaticQuery(graphql`
+    query mailingListQuery {
+      sanityFooter {
+        _rawMailingListBody
+        _rawMailingListTitle
+      }
+    }
+  `)
+
   return (
     <MailingListWrapper>
-      <BoldH3>メーリングリスト登録</BoldH3>
+      <BoldH3>
+        {sanityFooter._rawMailingListTitle.ja}
+      </BoldH3>
       <p>
-        イベントや研修のお知らせをご希望される方はメールのご登録をお願い致します。
+        <BlockContent blocks={sanityFooter._rawMailingListBody.ja} serializers={serializers} />
       </p>
       <Form id="mailingList">
         <Input type="email" id="email" name="email" required />

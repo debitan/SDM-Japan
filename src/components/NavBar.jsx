@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Location } from '@reach/router'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import StyledAnchor from './shared/StyledAnchor'
 // import MyContext from './MyContext'
@@ -67,6 +68,33 @@ const DonationLink = styled('div')`
 `
 
 function NavBar () {
+    const { sanityHeader } = useStaticQuery(graphql`
+        query headerQuery {
+            sanityHeader {
+                logo {
+                  caption {
+                    ja
+                    en
+                  }
+                  image {
+                    asset {
+                      fluid {
+                        base64
+                        aspectRatio
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                        sizes
+                      }
+                    }
+                  }
+                }
+                phone
+            }
+        }
+    `)
+
     return (
             // <MyContext.Consumer>
             //     {context =>

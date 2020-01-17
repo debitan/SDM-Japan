@@ -3,16 +3,17 @@ import styled, { createGlobalStyle } from 'styled-components'
 import Helmet from 'react-helmet'
 import Container from 'react-bootstrap/Container'
 
-import SEO from './SEO'
-import NavBar from './NavBar'
-import Footer from './Footer'
-import MailingList from './MailingList'
+import SEO from "./SEO"
+import NavBar from "./NavBar"
+import Footer from "./Footer"
+import MailingList from "./MailingList"
+import Donation from "./Donation"
 
-const MobileNoOverflowWrapper = styled('body')`
+const MobileNoOverflowWrapper = styled("body")`
   overflow-x: hidden;
-  font-family: 'Hepta Slab', serif;
+  font-family: "Hepta Slab", serif;
   @media (min-width: 992px) {
-      overflow-x: visible;
+    overflow-x: visible;
   }
 `
 
@@ -47,9 +48,8 @@ function Layout({ children }) {
       <GlobalStyle />
       <MobileNoOverflowWrapper>
         <NavBar />
-        <Container>
-          {children}
-        </Container>
+        <Container>{children}</Container>
+        <Donation />
         <MailingList />
         <Footer />
       </MobileNoOverflowWrapper>
