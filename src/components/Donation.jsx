@@ -6,6 +6,9 @@ import BlockContent from '@sanity/block-content-to-react'
 
 import serializers from './serializers'
 import BlueButton from '../components/shared/BlueButton'
+import ColumnWrapper from '../components/shared/ColumnWrapper'
+import GreyH3 from '../components/shared/GreyH3'
+import RowWrapper from '../components/shared/RowWrapper'
 
 const ColourDiv = styled('div')`
     background-color: #FFF691;
@@ -26,30 +29,13 @@ const DonationWrapper = styled('div')`
     max-width: 60rem;
 `
 
-const GreyH3 = styled('h3')`
-    color: #5E5C5C;
-    font-weight: 600;
-    text-align: center;
-`
-
-const FlexWrapper = styled('div')`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+const FlexWrapper = styled(RowWrapper)`
     padding: 10px;
     flex-direction: column;
 
     @media (min-width: 768px) {
         flex-direction: row;
     }
-`
-
-const ColumnWrapper = styled('div')`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: fit-content;
 `
 
 const StyledImg = styled(Img)`
@@ -84,8 +70,6 @@ const Donation = () => {
             }
         }
     `)
-
-    console.log(sanityFooter._rawDonateBody)
 
     return (
         <ColourDiv>

@@ -8,6 +8,8 @@ import { Location } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import StyledAnchor from './shared/StyledAnchor'
+import RowWrapper from './shared/RowWrapper'
+
 // import MyContext from './MyContext'
 
 const StyledNavbar = styled(Navbar)`
@@ -60,11 +62,8 @@ const StyledLink = styled(StyledAnchor)`
     border-bottom: ${props => props.location === props.href ? '2px solid black' : 'none'};
 `
 
-const DonationLink = styled('div')`
+const DonationLink = styled(RowWrapper)`
     background-color: blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 `
 
 function NavBar () {

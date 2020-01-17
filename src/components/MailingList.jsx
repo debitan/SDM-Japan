@@ -5,13 +5,11 @@ import BlockContent from "@sanity/block-content-to-react"
 
 import serializers from "./serializers"
 import BlueButton from '../components/shared/BlueButton'
+import RowWrapper from '../components/shared/RowWrapper'
 
-const MailingListWrapper = styled("div")`
+const MailingListWrapper = styled(RowWrapper)`
   background-color: rgb(236, 237, 237);
   padding: 30px 30px 0 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 `
 
@@ -47,6 +45,10 @@ const Input = styled("input")`
   }
 `
 
+const Button = styled(BlueButton)`
+  margin-left: 10px;
+`
+
 const MailingList = () => {
   const { sanityFooter } = useStaticQuery(graphql`
     query mailingListQuery {
@@ -69,7 +71,7 @@ const MailingList = () => {
       </p>
       <Form id="mailingList">
         <Input type="email" id="email" name="email" required />
-        <BlueButton type="submit">登録</BlueButton>
+        <Button type="submit">登録</Button>
       </Form>
     </MailingListWrapper>
   )

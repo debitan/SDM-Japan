@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import Helmet from 'react-helmet'
-import Container from 'react-bootstrap/Container'
 
 import SEO from "./SEO"
 import NavBar from "./NavBar"
@@ -48,7 +47,7 @@ function Layout({ children }) {
       <GlobalStyle />
       <MobileNoOverflowWrapper>
         <NavBar />
-        <Container>{children}</Container>
+        {children}
         <Donation />
         <MailingList />
         <Footer />
