@@ -70,13 +70,7 @@ const About = () => {
                     image {
                       asset {
                         fluid {
-                          base64
-                          aspectRatio
-                          src
-                          srcSet
-                          srcWebp
-                          srcSetWebp
-                          sizes
+                            ...GatsbySanityImageFluid
                         }
                       }
                     }
@@ -89,7 +83,10 @@ const About = () => {
             }
             sanityHomePage {
                 aboutSDMTitle {
-                ja
+                    ja
+                }
+                activityTitle {
+                    ja
                 }
                 _rawAboutSdm
             }
@@ -104,7 +101,7 @@ const About = () => {
                     <Text><BlockContent blocks={sanityHomePage._rawAboutSdm.ja} serializers={serializers} /></Text>
                     <BlueButton>もっと知る</BlueButton>
                 </Wrapper>
-                <GreyH3>私たちの活動</GreyH3>
+                <GreyH3>{sanityHomePage.activityTitle.ja}</GreyH3>
                 <ActivitiesWrapper>
                     {sanityOurActivities.activities.map(activity =>
                         <ActivityWrapper>
@@ -113,14 +110,6 @@ const About = () => {
                         </ActivityWrapper>
                     )}
                 </ActivitiesWrapper>
-                {/* <ActivityWrapper>
-                    {sanityOurActivities.activities.slice(3).map(activity =>
-                        <ColumnWrapper>
-                            <StyledImg fluid={activity.ourActivityImage.image.asset.fluid} alt={activity.ourActivityImage.caption.ja} key={activity.ourActivityImage.caption.ja} />
-                            <StyledAnchor href={activity.link} >{activity.ourActivity.ja}</StyledAnchor>
-                        </ColumnWrapper>
-                    )}
-                </ActivityWrapper> */}
                 <Wrapper>
                     <Text><BlockContent blocks={sanityOurActivities._rawCanpanLink.ja} serializers={serializers} /></Text>
                 </Wrapper>
