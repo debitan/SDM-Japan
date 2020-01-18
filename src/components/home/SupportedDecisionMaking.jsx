@@ -16,11 +16,14 @@ const ImageDiv = styled('div')`
     align-items: center;
     margin: 2rem 0;
     min-height: fit-content;
+    position: relative;
+    max-width: 1900px;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 const Wrapper = styled(ColumnWrapper)`
-    width: 42rem;
-    max-width: 100%;
+    max-width: 42rem;
     margin: 2rem 0;
     margin-left: auto;
     margin-right: auto;

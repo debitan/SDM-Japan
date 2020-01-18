@@ -18,6 +18,9 @@ const ColourDiv = styled('div')`
     justify-content: center;
     align-items: center;
     margin: 2rem 0;
+    max-width: 1900px;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 const Wrapper = styled(ColumnWrapper)`
@@ -38,12 +41,12 @@ const StyledImg = styled(Img)`
 `
 
 const ActivitiesWrapper = styled(RowWrapper)`
-    justify-content: space-around;
     flex-wrap: wrap;
 `
 
 const ActivityWrapper = styled(ColumnWrapper)`
     flex: 1 1 400px;
+    max-width: 433.33px;
 `
 
 const StyledAnchor = styled('a')`

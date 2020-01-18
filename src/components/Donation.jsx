@@ -17,6 +17,9 @@ const ColourDiv = styled('div')`
     justify-content: center;
     align-items: center;
     margin: 2rem 0;
+    max-width: 1900px;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 const DonationWrapper = styled('div')`
