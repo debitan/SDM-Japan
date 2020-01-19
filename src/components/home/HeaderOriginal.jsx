@@ -7,24 +7,32 @@ import Img from 'gatsby-image'
 import serializers from '../serializers'
 import Container from '../shared/Container'
 import ColumnWrapper from '../shared/ColumnWrapper'
-import RowWrapper from '../shared/RowWrapper'
+
+import HomeWavyLine from '../../images/HomeWavyLine.svg'
 
 const ImageDiv = styled('div')`
+    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: top;
     margin-bottom: 2rem;
     min-height: fit-content;
+    position: relative;
     max-width: 1900px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #FFF691;
 `
 
-const GreenText = styled('h4')`
+const GreenText = styled('p')`
     margin: 2rem;
     color: #2CADAD;
+    line-height: 1rem;
+    z-index: 1;
     max-width: 495px;
+
+    @media (min-width: 1280px) {
+        margin-right: 31rem;
+    }
 `
 
 const BlackText = styled('p')`
@@ -32,26 +40,67 @@ const BlackText = styled('p')`
     max-width: 100%;
     line-height: 1.5rem;
     margin: 2rem;
+    z-index: 1;
 `
 
 const StyledImg = styled(Img)`
-    width: 100%;
+    width: 100vw;
+    max-width: 612px;
+    z-index: 0;
+
+    @media (min-width: 768px) {
+        min-height: 25rem;
+    }
 
     @media (min-width: 1280px) {
-        width: 50%;
+        min-width: 41rem;
+        max-height: 35rem;
+    }
+
+    @media (min-width: 1680px) {
+        min-width: 50rem;
+        max-height: 100%;
+    }
+`
+
+const StyledSvg = styled('img')`
+    z-index: 1;
+
+    @media (min-width: 480px) {
+        margin-top: 10rem;
+    }
+
+    @media (min-width: 768px) {
+        margin-top: 15rem;
+    }
+
+    @media (min-width: 992px) {
+        margin-top: 20rem;
+    }
+
+    @media (min-width: 1280px) {
+        width: 100%;
+        margin-top: 20px;
     }
 `
 
 const FoundationLogo = styled(Img)`
+    z-index: 1;
     width: 10rem;
+`
+
+const OverlayContainer = styled(Container)`
+    position: absolute;
+    min-width: 1900px;
 `
 
 const InnerContainer = styled(Container)`
     margin-left: auto;
     margin-right: auto;
+    z-index: 1;
 `
 
-const Wrapper = styled(ColumnWrapper)`
+const HeaderWrapper = styled(ColumnWrapper)`
     width: 100%;
     justify-content: space-between;
 
@@ -60,50 +109,36 @@ const Wrapper = styled(ColumnWrapper)`
     }
 `
 
-const WrapperReverse = styled(Wrapper)`
-    margin: 4rem 0;
+const IntroWrapper = styled(HeaderWrapper)`
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: 992px) {
+        margin-top: 5rem;
+    }
 
     @media (min-width: 1280px) {
-        flex-direction: row-reverse;
+        margin-top: -2rem;
     }
 `
 
-const SkillsWrapper = styled(Wrapper)`
-    border-top: dashed 3px black;
-    padding: 2rem 0;
-    justify-content: space-around;
+const SkillsWrapper = styled(IntroWrapper)`
+    border-top: 1px dashed black;
+    background-color: #FFF691;
+    min-height: fit-content;
 `
 
 const WhiteCircle = styled('div')`
-    width: 12rem;
+    z-index: 1;
+    width: 15rem;
     background-color: white;
     border-radius: 50%;
-    height: 12rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 15rem;
 `
 
-const SkillLogo = styled(Img)`
-    width: 3rem;
-    margin: 0 1rem;
-`
-
-const ListWrapper = styled(ColumnWrapper)`
-    align-items: flex-start;
-`
-
-const SkillWrapper = styled(RowWrapper)`
-    margin: 1rem 0;
-`
-
-const SkillText = styled('span')`
-    color: black;
-`
-
-const Header = () => {
+const HeaderOriginal = () => {
     const { sanityFooter, sanityHomePage } = useStaticQuery(graphql`
-        query HeaderQuery {
+        query HeaderOriginalQuery {
             sanityFooter {
                 nipponFoundationLogo {
                     caption {
@@ -172,38 +207,25 @@ const Header = () => {
         }
     `)
 
-    console.log(sanityHomePage.skill)
+    console.log(sanityFooter)
 
     return (
         <ImageDiv>
-            <InnerContainer>
-                <Wrapper>
+            <StyledSvg src={HomeWavyLine} alt='黄色い背景' />
+            <OverlayContainer>
+                <HeaderWrapper>
                     <StyledImg fluid={sanityHomePage.headerImage.image.asset.fluid} alt={sanityHomePage.headerImage.caption} />
-                    <ColumnWrapper>
-                        <GreenText><BlockContent blocks={sanityHomePage._rawHeader.ja} serializers={serializers} /></GreenText>
+                    <GreenText><BlockContent blocks={sanityHomePage._rawHeader.ja} serializers={serializers} /></GreenText>
+                </HeaderWrapper>
+                <InnerContainer>
+                    <IntroWrapper>
+                        <BlackText><BlockContent blocks={sanityHomePage._rawIntro.ja} serializers={serializers} /></BlackText>
                         <FoundationLogo fluid={sanityFooter.nipponFoundationLogo.image.asset.fluid} alt={sanityFooter.nipponFoundationLogo.caption.ja} />
-                    </ColumnWrapper>
-                </Wrapper>
-                <WrapperReverse>
-                    <StyledImg fluid={sanityHomePage.cartoonImage.image.asset.fluid} alt={sanityHomePage.cartoonImage.caption} />
-                    <BlackText><BlockContent blocks={sanityHomePage._rawIntro.ja} serializers={serializers} /></BlackText>
-                </WrapperReverse>
-                <SkillsWrapper>
-                    <WhiteCircle>
-                        <BlackText>{sanityHomePage.skillTitle.ja}</BlackText>
-                    </WhiteCircle>
-                    <ListWrapper>
-                        {sanityHomePage.skill.map(skill =>
-                            <SkillWrapper>
-                                <SkillLogo fluid={skill.skillImage.image.asset.fluid} alt={skill.skillImage.caption.ja} />
-                                <SkillText>{skill.skill.ja}</SkillText>
-                            </SkillWrapper>
-                        )}
-                    </ListWrapper>
-                </SkillsWrapper>
-            </InnerContainer>
+                    </IntroWrapper>
+                </InnerContainer>
+            </OverlayContainer>
         </ImageDiv>
     )
 }
 
-export default Header
+export default HeaderOriginal

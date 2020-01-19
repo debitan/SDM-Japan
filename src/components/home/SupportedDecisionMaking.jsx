@@ -10,7 +10,6 @@ import ColumnWrapper from '../shared/ColumnWrapper'
 import GreyH3 from '../shared/GreyH3'
 
 const ImageDiv = styled('div')`
-    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

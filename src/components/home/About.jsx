@@ -13,7 +13,6 @@ import RowWrapper from '../shared/RowWrapper'
 
 const ColourDiv = styled('div')`
     background-color: #CCF6E1;
-    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
