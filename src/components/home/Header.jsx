@@ -9,7 +9,17 @@ import Container from '../shared/Container'
 import ColumnWrapper from '../shared/ColumnWrapper'
 import RowWrapper from '../shared/RowWrapper'
 
-const ImageDiv = styled('div')`
+const HeaderTopDiv = styled('div')`
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    min-height: fit-content;
+    max-width: 1900px;
+    margin-left: auto;
+    margin-right: auto;
+`
+
+const TopDiv = styled('div')`
     display: flex;
     justify-content: center;
     align-items: top;
@@ -175,34 +185,40 @@ const Header = () => {
     console.log(sanityHomePage.skill)
 
     return (
-        <ImageDiv>
-            <InnerContainer>
-                <Wrapper>
-                    <StyledImg fluid={sanityHomePage.headerImage.image.asset.fluid} alt={sanityHomePage.headerImage.caption} />
-                    <ColumnWrapper>
-                        <GreenText><BlockContent blocks={sanityHomePage._rawHeader.ja} serializers={serializers} /></GreenText>
+        <>
+            <HeaderTopDiv>
+                <InnerContainer>
+                    <Wrapper>
+                        <StyledImg fluid={sanityHomePage.headerImage.image.asset.fluid} alt={sanityHomePage.headerImage.caption} />
+                        <ColumnWrapper>
+                            <GreenText><BlockContent blocks={sanityHomePage._rawHeader.ja} serializers={serializers} /></GreenText>
+                            <StyledImg fluid={sanityHomePage.cartoonImage.image.asset.fluid} alt={sanityHomePage.cartoonImage.caption} />
+                        </ColumnWrapper>
+                    </Wrapper>
+                </InnerContainer>
+            </HeaderTopDiv>
+            <TopDiv>
+                <InnerContainer>
+                    <WrapperReverse>
                         <FoundationLogo fluid={sanityFooter.nipponFoundationLogo.image.asset.fluid} alt={sanityFooter.nipponFoundationLogo.caption.ja} />
-                    </ColumnWrapper>
-                </Wrapper>
-                <WrapperReverse>
-                    <StyledImg fluid={sanityHomePage.cartoonImage.image.asset.fluid} alt={sanityHomePage.cartoonImage.caption} />
-                    <BlackText><BlockContent blocks={sanityHomePage._rawIntro.ja} serializers={serializers} /></BlackText>
-                </WrapperReverse>
-                <SkillsWrapper>
-                    <WhiteCircle>
-                        <BlackText>{sanityHomePage.skillTitle.ja}</BlackText>
-                    </WhiteCircle>
-                    <ListWrapper>
-                        {sanityHomePage.skill.map(skill =>
-                            <SkillWrapper>
-                                <SkillLogo fluid={skill.skillImage.image.asset.fluid} alt={skill.skillImage.caption.ja} />
-                                <SkillText>{skill.skill.ja}</SkillText>
-                            </SkillWrapper>
-                        )}
-                    </ListWrapper>
-                </SkillsWrapper>
-            </InnerContainer>
-        </ImageDiv>
+                        <BlackText><BlockContent blocks={sanityHomePage._rawIntro.ja} serializers={serializers} /></BlackText>
+                    </WrapperReverse>
+                    <SkillsWrapper>
+                        <WhiteCircle>
+                            <BlackText>{sanityHomePage.skillTitle.ja}</BlackText>
+                        </WhiteCircle>
+                        <ListWrapper>
+                            {sanityHomePage.skill.map(skill =>
+                                <SkillWrapper>
+                                    <SkillLogo fluid={skill.skillImage.image.asset.fluid} alt={skill.skillImage.caption.ja} />
+                                    <SkillText>{skill.skill.ja}</SkillText>
+                                </SkillWrapper>
+                            )}
+                        </ListWrapper>
+                    </SkillsWrapper>
+                </InnerContainer>
+            </TopDiv>
+        </>
     )
 }
 
