@@ -127,7 +127,7 @@ function NavBar() {
                                         <StyledLink href="/" location={location.pathname}>Home</StyledLink>
                                         <StyledNavDropdown title="私たちのついて" id="basic-nav-dropdown">
                                             <NavDropdown.Item href="/who-we-are">私たちについて</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action/3.2">チーム</NavDropdown.Item>
+                                            <NavDropdown.Item href="/team">チーム</NavDropdown.Item>
                                             <NavDropdown.Item href="#action/3.3">活動報告書</NavDropdown.Item>
                                             <NavDropdown.Item href="#action/3.3">出版・メディア</NavDropdown.Item>
                                         </StyledNavDropdown>

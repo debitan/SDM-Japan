@@ -44,7 +44,8 @@ const ActivitiesWrapper = styled(RowWrapper)`
 
 const ActivityWrapper = styled(ColumnWrapper)`
     flex: 1 1 400px;
-    max-width: 433.33px;
+    max-width: 230px;
+    margin: 0 3rem;
 `
 
 const StyledAnchor = styled('a')`
@@ -98,7 +99,7 @@ const OurActivities = () => {
                 </Wrapper>
                 <ActivitiesWrapper>
                     {sanityOurActivities.activities.map(activity =>
-                        <ActivityWrapper>
+                        <ActivityWrapper key={activity.ourActivity.ja}>
                             <StyledImg fluid={activity.ourActivityImage.image.asset.fluid} alt={activity.ourActivityImage.caption.ja} key={activity.ourActivityImage.caption.ja} />
                             <StyledAnchor href={activity.link} >{activity.ourActivity.ja}</StyledAnchor>
                         </ActivityWrapper>
