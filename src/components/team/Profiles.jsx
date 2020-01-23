@@ -87,13 +87,7 @@ const Profiles = () => {
                     image {
                         asset {
                         fluid {
-                            base64
-                            aspectRatio
-                            src
-                            srcSet
-                            srcWebp
-                            srcSetWebp
-                            sizes
+                            ...GatsbySanityImageFluid
                         }
                         }
                     }
