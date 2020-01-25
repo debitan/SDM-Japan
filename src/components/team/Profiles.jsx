@@ -9,6 +9,7 @@ import Container from '../shared/Container'
 import ColumnWrapper from '../shared/ColumnWrapper'
 import RowWrapper from '../shared/RowWrapper'
 import GreyH3 from '../shared/GreyH3'
+import BlueText from '../shared/BlueText'
 
 const ColourDiv = styled('div')`
     display: flex;
@@ -59,13 +60,6 @@ const NameWrapper = styled(RowWrapper)`
 
 const NameH3 = styled(GreyH3)`
     margin-left: 2rem;
-`
-
-const BlueText = styled('p')`
-    color: #026AB9;
-    margin: 1rem 0;
-    font-weight: 600;
-    font-size: 1.1rem;
 `
 
 const Profiles = () => {

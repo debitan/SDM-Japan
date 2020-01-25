@@ -125,11 +125,11 @@ function NavBar() {
                                 <Navbar.Collapse id="collapsible-navbar-nav">
                                     <Nav className="mr-auto ml-auto">
                                         <StyledLink href="/" location={location.pathname}>Home</StyledLink>
-                                        <StyledNavDropdown title="私たちのついて" id="basic-nav-dropdown">
+                                        <StyledNavDropdown title="私たちについて" id="basic-nav-dropdown">
                                             <NavDropdown.Item href="/who-we-are">私たちについて</NavDropdown.Item>
                                             <NavDropdown.Item href="/team">チーム</NavDropdown.Item>
-                                            <NavDropdown.Item href="/report">活動報告書</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action/3.3">出版・メディア</NavDropdown.Item>
+                                            <NavDropdown.Item href="/reports">活動報告書</NavDropdown.Item>
+                                            <NavDropdown.Item href="/publications">出版・メディア</NavDropdown.Item>
                                         </StyledNavDropdown>
                                         <StyledNavDropdown title="私たちの活動" id="basic-nav-dropdown">
                                             <NavDropdown.Item href="#action/3.1">意思決定支援実践のための総合プログラム開発</NavDropdown.Item>

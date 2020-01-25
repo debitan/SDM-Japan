@@ -5,11 +5,10 @@ import Img from 'gatsby-image'
 
 import ColumnWrapper from './shared/ColumnWrapper'
 import RowWrapper from './shared/RowWrapper'
-import Container from './shared/Container'
+import ContainerCentre from './shared/ContainerCentre'
 
 const ReportsWrapper = styled(RowWrapper)`
     justify-content: flex-start;
-    padding: 3rem 0;
     flex-wrap: wrap;
 `
 
@@ -17,11 +16,6 @@ const StyledImage = styled(Img)`
     max-height: 340px;
     min-width: 100%;
     margin-bottom: 1rem;
-`
-
-const ReportsContainer = styled(Container)`
-    margin-left: auto;
-    margin-right: auto;
 `
 
 const ReportWrapper = styled(ColumnWrapper)`
@@ -75,7 +69,7 @@ const Reports = () => {
     `)
 
     return (
-        <ReportsContainer>
+        <ContainerCentre>
             <ReportsWrapper>
                 {sanityReports.reports.map(report =>
                     <Download href={report.report.asset.url} download target='_blank'>
@@ -86,7 +80,7 @@ const Reports = () => {
                     </Download>
                 )}
             </ReportsWrapper>
-        </ReportsContainer>
+        </ContainerCentre>
     )
 }
 

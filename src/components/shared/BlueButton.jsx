@@ -10,6 +10,7 @@ const BlueButton = styled("button")`
   height: 50px;
   min-height: fit-content;
   min-width: fit-content;
+  min-inline-size: max-content;
   padding: 0.6rem 3.2rem;
 
   @media (max-width: 480px) {
