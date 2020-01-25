@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import BlockContent from '@sanity/block-content-to-react'
 
+import readyFor from '../images/readyFor.svg'
 import serializers from './serializers'
 import BlueButton from '../components/shared/BlueButton'
 import ColumnWrapper from '../components/shared/ColumnWrapper'
@@ -40,7 +40,7 @@ const FlexWrapper = styled(RowWrapper)`
     }
 `
 
-const StyledImg = styled(Img)`
+const StyledImg = styled('img')`
     min-width: 7.5rem;
     margin-bottom: 20px;
 
@@ -56,18 +56,6 @@ const Donation = () => {
                 donateTitle {
                     ja
                 }
-                donateImage {
-                    image {
-                    asset {
-                        fluid {
-                        ...GatsbySanityImageFluid
-                        }
-                    }
-                    }
-                    caption {
-                        ja
-                    }
-                }
                 _rawDonateBody
             }
         }
@@ -78,7 +66,7 @@ const Donation = () => {
             <DonationWrapper>
                 <GreyH3>{sanityFooter.donateTitle.ja}</GreyH3>
                 <FlexWrapper>
-                    <StyledImg fluid={sanityFooter.donateImage.image.asset.fluid} alt={sanityFooter.donateImage.caption.ja} />
+                    <StyledImg src={readyFor} alt='Ready forのロゴ' />
                     <ColumnWrapper>
                         <p>
                             <BlockContent blocks={sanityFooter._rawDonateBody.ja} serializers={serializers} />

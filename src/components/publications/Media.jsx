@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import BlockContent from '@sanity/block-content-to-react'
-import Img from 'gatsby-image'
 import moment from 'moment'
 
 import serializers from '../serializers'
@@ -11,6 +10,7 @@ import GreyH3 from '../shared/GreyH3'
 import ColumnWrapper from '../shared/ColumnWrapper'
 import RowWrapper from '../shared/RowWrapper'
 import BlueText from '../shared/BlueText'
+import Link from '../shared/Link'
 import { NarrowCoverImage, WideCoverImage } from './Images'
 
 const PublicationWrapper = styled(ColumnWrapper)`
@@ -34,15 +34,6 @@ const Description = styled('p')`
 const Date = styled('p')`
     text-align: end;
     font-weight: 600;
-`
-
-const Link = styled('a')`
-    cursor: pointer;
-    text-decoration: none;
-
-    :hover, :active, :visited {
-        text-decoration: none;
-    }
 `
 
 const Media = () => {

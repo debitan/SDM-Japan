@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import BlockContent from '@sanity/block-content-to-react'
 
 import serializers from '../serializers'
@@ -11,6 +10,7 @@ import ColumnWrapper from '../shared/ColumnWrapper'
 import BlueText from '../shared/BlueText'
 import BlueButton from '../shared/BlueButton'
 import RowWrapper from '../shared/RowWrapper'
+import Link from '../shared/Link'
 import { NarrowCoverImage, WideCoverImage } from './Images'
 
 const PublicationsContainer = styled(ContainerCentre)`
@@ -50,15 +50,6 @@ const Description = styled('p')`
 
 const DescriptionWrapper = styled('div')`
     max-width: 666px;
-`
-
-const Link = styled('a')`
-    cursor: pointer;
-    text-decoration: none;
-
-    :hover, :active, :visited {
-        text-decoration: none;
-    }
 `
 
 const PublishedMedia = () => {
@@ -121,7 +112,7 @@ const PublishedMedia = () => {
                             </Description>
                             <LinkWrapper>
                                 {publication.link.map(link =>
-                                    <Link href={link.url} target='_blank'>
+                                    <Link href={link.url} target='_blank' key={link.url}>
                                         <BlueButton>{link.link.ja}</BlueButton>
                                     </Link>
                                 )}

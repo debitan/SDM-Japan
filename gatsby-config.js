@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -16,5 +20,19 @@ module.exports = {
         dataset: "production",
       },
     },
+    {
+      resolve: `gatsby-source-googlemaps-static`,
+      options: {
+          key: process.env.GOOGLE_MAPS_STATIC_API_KEY,
+          center: `2C79+VH Sado, 新潟県 Japan`,
+          zoom: '13',
+          markers: [
+              {
+                  location: `2C79+VH Sado, 新潟県 Japan`,
+                  color: `red`,
+              },
+          ]
+      },
+  },
   ],
 }

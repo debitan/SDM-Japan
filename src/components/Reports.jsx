@@ -8,8 +8,12 @@ import RowWrapper from './shared/RowWrapper'
 import ContainerCentre from './shared/ContainerCentre'
 
 const ReportsWrapper = styled(RowWrapper)`
-    justify-content: flex-start;
     flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: 666px) {
+        justify-content: flex-start;
+    }
 `
 
 const StyledImage = styled(Img)`

@@ -6,10 +6,11 @@ import Container from 'react-bootstrap/Container'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Location } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 
+import logo from '../images/logo.svg'
 import StyledAnchor from './shared/StyledAnchor'
 import RowWrapper from './shared/RowWrapper'
+import Link from './shared/Link'
 
 // import MyContext from './MyContext'
 
@@ -71,7 +72,7 @@ const LogoWrapper = styled(RowWrapper)`
     justify-content: space-between;
 `
 
-const StyledImage = styled(Img)`
+const StyledImage = styled('img')`
     width: 30rem;
 `
 
@@ -88,19 +89,6 @@ function NavBar() {
     const { sanityHeader } = useStaticQuery(graphql`
         query headerQuery {
             sanityHeader {
-                logo {
-                  caption {
-                    ja
-                    en
-                  }
-                  image {
-                    asset {
-                      fluid {
-                        ...GatsbySanityImageFluid
-                      }
-                    }
-                  }
-                }
                 phone
             }
         }
@@ -114,10 +102,12 @@ function NavBar() {
                 return (
                     <>
                         <Container>
-                            <LogoWrapper>
-                                <StyledImage fluid={sanityHeader.logo.image.asset.fluid} alt={sanityHeader.logo.caption.ja} />
-                                <Phone>{sanityHeader.phone}</Phone>
-                            </LogoWrapper>
+                                <LogoWrapper>
+                                    <Link href='/'>
+                                        <StyledImage src={logo} alt='SDMーJapanのロゴ' />
+                                    </Link>
+                                    <Phone>{sanityHeader.phone}</Phone>
+                                </LogoWrapper>
                         </Container>
                         <StyledNavbar expand="lg">
                             <Container>

@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import BlockContent from '@sanity/block-content-to-react'
 import Img from 'gatsby-image'
 
+import nipponFoundation from '../../images/nipponFoundation.svg'
 import serializers from '../serializers'
 import Container from '../shared/Container'
 import ColumnWrapper from '../shared/ColumnWrapper'
@@ -52,7 +53,7 @@ const StyledImg = styled(Img)`
     }
 `
 
-const FoundationLogo = styled(Img)`
+const FoundationLogo = styled('img')`
     width: 10rem;
 `
 
@@ -112,22 +113,8 @@ const SkillText = styled('span')`
 `
 
 const Header = () => {
-    const { sanityFooter, sanityHomePage } = useStaticQuery(graphql`
+    const { sanityHomePage } = useStaticQuery(graphql`
         query HeaderQuery {
-            sanityFooter {
-                nipponFoundationLogo {
-                    caption {
-                    ja
-                    }
-                    image {
-                    asset {
-                        fluid {
-                            ...GatsbySanityImageFluid
-                        }
-                    }
-                    }
-                }
-            }
             sanityHomePage {
                 headerImage {
                   image {
@@ -182,8 +169,6 @@ const Header = () => {
         }
     `)
 
-    console.log(sanityHomePage.skill)
-
     return (
         <>
             <HeaderTopDiv>
@@ -200,7 +185,7 @@ const Header = () => {
             <TopDiv>
                 <InnerContainer>
                     <WrapperReverse>
-                        <FoundationLogo fluid={sanityFooter.nipponFoundationLogo.image.asset.fluid} alt={sanityFooter.nipponFoundationLogo.caption.ja} />
+                        <FoundationLogo src={nipponFoundation} alt='日本財団のロゴ' />
                         <BlackText><BlockContent blocks={sanityHomePage._rawIntro.ja} serializers={serializers} /></BlackText>
                     </WrapperReverse>
                     <SkillsWrapper>
