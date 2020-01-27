@@ -9,7 +9,7 @@ import MailingList from "./MailingList"
 import Donation from "./Donation"
 
 const MobileNoOverflowWrapper = styled("body")`
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: "Hepta Slab", serif;
   @media (min-width: 992px) {
     overflow-x: visible;

@@ -83,16 +83,16 @@ function Footer() {
                   </FlexColumn1>
                   <FlexColumn2>
                     <LinkSection>私たちについて</LinkSection>
-                    <StyledLink href="/shop/" location={location.pathname}>
+                    <StyledLink href="/who-we-are/" location={location.pathname}>
                       私たちについて
                     </StyledLink>
-                    <StyledLink href="/events/" location={location.pathname}>
+                    <StyledLink href="/team/" location={location.pathname}>
                       チーム
                     </StyledLink>
-                    <StyledLink href="/weddings/" location={location.pathname}>
+                    <StyledLink href="/reports/" location={location.pathname}>
                       活動報告書
                     </StyledLink>
-                    <StyledLink href="/gallery/" location={location.pathname}>
+                    <StyledLink href="/publications/" location={location.pathname}>
                       メディア
                     </StyledLink>
                   </FlexColumn2>
@@ -129,10 +129,10 @@ function Footer() {
                     </StyledLink>
                   </FlexColumn1>
                   <FlexColumn2>
-                    <BoldStyledLink href="/">ニューズ</BoldStyledLink>
+                    <BoldStyledLink href="/news/" location={location.pathname}>ニューズ</BoldStyledLink>
                   </FlexColumn2>
                   <FlexColumn3>
-                    <BoldStyledLink href="/">問い合わせ</BoldStyledLink>
+                    <BoldStyledLink href="/contact/" location={location.pathname}>問い合わせ</BoldStyledLink>
                   </FlexColumn3>
                 </RightSide>
               </Grid>
