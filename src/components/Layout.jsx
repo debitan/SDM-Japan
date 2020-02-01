@@ -10,7 +10,7 @@ import Donation from "./Donation"
 
 const MobileNoOverflowWrapper = styled("body")`
   overflow-x: hidden;
-  font-family: "Hepta Slab", serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
   @media (min-width: 992px) {
     overflow-x: visible;
   }
