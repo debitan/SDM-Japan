@@ -11,7 +11,7 @@ import ColumnWrapper from '../shared/ColumnWrapper'
 import RowWrapper from '../shared/RowWrapper'
 import BlueText from '../shared/BlueText'
 import Link from '../shared/Link'
-import { NarrowCoverImage, WideCoverImage } from './Images'
+import { NarrowCoverImage, WideCoverImage } from '../shared/Images'
 
 const PublicationWrapper = styled(ColumnWrapper)`
     margin: 2rem 0;

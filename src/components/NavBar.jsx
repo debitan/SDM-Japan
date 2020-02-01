@@ -138,7 +138,7 @@ function NavBar() {
                                         </StyledNavDropdown>
                                         <StyledNavDropdown title="あなたにできること" id="basic-nav-dropdown" location={location.pathname} links={whatYouCanDoLinks}>
                                             <DropdownItem href="#action/3.1" location={location.pathname}>講師を依頼する</DropdownItem>
-                                            <DropdownItem href="#action/3.2" location={location.pathname}>イベント参加</DropdownItem>
+                                            <DropdownItem href="/events/" location={location.pathname}>イベント参加</DropdownItem>
                                             <DropdownItem href="#action/3.3" location={location.pathname}>会員になる</DropdownItem>
                                             <DropdownItem href="#action/3.3" location={location.pathname}>メーリングリスト登録・SNSフォローする</DropdownItem>
                                         </StyledNavDropdown>

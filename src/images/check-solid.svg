@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>check-solid</title>
+    <desc>Created with Sketch.</desc>
+    <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Event" transform="translate(-623.000000, -880.000000)" fill="#89EAEA" fill-rule="nonzero">
+            <g id="check-solid" transform="translate(623.000000, 880.000000)">
+                <path d="M6.79288749,14.7054005 L0.292881145,8.16802125 C-0.0976270485,7.77526777 -0.0976270485,7.1384626 0.292881145,6.74566982 L1.70706221,5.32331839 C2.09757041,4.93052561 2.73077415,4.93052561 3.12128235,5.32331839 L7.5,9.72717049 L16.8787177,0.294565116 C17.2692258,-0.098188372 17.9024296,-0.098188372 18.2929378,0.294565116 L19.7071189,1.71691655 C20.097627,2.10967004 20.097627,2.74647521 19.7071189,3.13926798 L8.20710762,14.7054398 C7.81656037,15.0981933 7.18339569,15.0981933 6.79288749,14.7054005 L6.79288749,14.7054005 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

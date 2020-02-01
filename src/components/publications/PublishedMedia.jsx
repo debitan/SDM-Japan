@@ -11,7 +11,7 @@ import BlueText from '../shared/BlueText'
 import BlueButton from '../shared/BlueButton'
 import RowWrapper from '../shared/RowWrapper'
 import Link from '../shared/Link'
-import { NarrowCoverImage, WideCoverImage } from './Images'
+import { NarrowCoverImage, WideCoverImage } from '../shared/Images'
 
 const PublicationsContainer = styled(ContainerCentre)`
     border-bottom: 1px solid #979797;
