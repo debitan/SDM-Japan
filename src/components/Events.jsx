@@ -151,8 +151,6 @@ const PublishedMedia = () => {
         }
     `)
 
-    console.log(sanityEventsPage)
-
     return (
         <PublicationsContainer>
             {sanityEventsPage.event.map(event =>
