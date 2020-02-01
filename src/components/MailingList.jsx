@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
@@ -45,21 +45,69 @@ const Input = styled("input")`
   }
 `
 
+
 const Button = styled(BlueButton)`
   margin-left: 10px;
 `
 
 const MailingList = () => {
   const { sanityFooter } = useStaticQuery(graphql`
-    query mailingListQuery {
-      sanityFooter {
-        _rawMailingListBody
-        mailingListTitle {
-          ja
-        }
+  query mailingListQuery {
+    sanityFooter {
+      _rawMailingListBody
+      mailingListTitle {
+        ja
       }
     }
+  }
   `)
+
+  const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: null }
+  })
+
+  const [email, setEmail] = useState()
+
+  const handleResponse = (status, msg) => {
+    if (status === 200) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg }
+      })
+      setEmail('')
+    } else {
+      setStatus({
+        info: { error: true, msg: msg }
+      })
+    }
+  }
+
+  const handleOnChange = e => {
+    e.persist()
+    setEmail(e.target.value)
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: false, msg: null }
+    })
+  }
+
+  const handleOnSubmit = async e => {
+    e.preventDefault()
+    setStatus(prevStatus => ({ ...prevStatus, submitting: true }))
+    const res = await fetch('/api/mailingList', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(email)
+    })
+    const text = await res.text()
+    handleResponse(res.status, text)
+  }
 
   return (
     <MailingListWrapper>
@@ -69,9 +117,15 @@ const MailingList = () => {
       <p>
         <BlockContent blocks={sanityFooter._rawMailingListBody.ja} serializers={serializers} />
       </p>
-      <Form id="mailingList">
-        <Input type="email" id="email" name="email" required />
-        <Button type="submit">登録</Button>
+      <Form id="mailingList" onSubmit={handleOnSubmit}>
+        <Input type="email" id="email" name="email" required onChange={handleOnChange} />
+        <Button type="submit" disabled={status.submitting}>
+          {!status.submitting
+            ? !status.submitted
+              ? '登録'
+              : status.info.msg
+            : '登録中'}
+        </Button>
       </Form>
     </MailingListWrapper>
   )

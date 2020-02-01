@@ -6,6 +6,7 @@
   "author": "David Matthews <dwm503@gmail.com>",
   "dependencies": {
     "@sanity/block-content-to-react": "^2.0.7",
+    "@sendgrid/mail": "^6.5.1",
     "babel-plugin-styled-components": "^1.10.6",
     "bootstrap": "^4.4.1",
     "gatsby": "^2.18.12",
