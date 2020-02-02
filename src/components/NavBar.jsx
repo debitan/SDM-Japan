@@ -38,6 +38,9 @@ const StyledNavDropdown = styled(NavDropdown)`
         padding: 0 !important;
         margin: 15px 10px;
         border-bottom: ${props => props.links.includes(props.location) ? '2px solid black' : 'none'};
+        :hover {
+            opacity: 60%;
+        }
     }
 
     > div {
@@ -64,6 +67,10 @@ const StyledLink = styled(StyledAnchor)`
     font-size: 18px;
     margin: 10px 15px;
     border-bottom: ${props => props.location === props.href ? '2px solid black' : 'none'};
+
+    :hover {
+        opacity: 60%;
+    }
 `
 
 const DonationLink = styled(RowWrapper)`

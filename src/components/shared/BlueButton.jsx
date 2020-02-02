@@ -16,6 +16,10 @@ const BlueButton = styled("button")`
   @media (max-width: 480px) {
     width: 60%;
   }
+
+  :hover {
+    opacity: 80%;
+  }
 `
 
 export default BlueButton
