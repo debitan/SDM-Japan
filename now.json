@@ -1,6 +1,10 @@
 {
     "env": {
-        "GOOGLE_MAPS_STATIC_API_KEY": "@google_maps_static_api_key",
         "SENDGRID_API_KEY": "@sdm_sendgrid"
+    },
+    "build": {
+        "env": {
+            "GOOGLE_MAPS_STATIC_API_KEY": "@google_maps_static_api_key"
+        }
     }
 }
