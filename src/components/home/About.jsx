@@ -8,6 +8,7 @@ import Container from '../shared/Container'
 import ColumnWrapper from '../shared/ColumnWrapper'
 import GreyH3 from '../shared/GreyH3'
 import BlueButton from '../shared/BlueButton'
+import StyledAnchor from '../shared/StyledAnchor'
 
 const ColourDiv = styled('div')`
     background-color: #CCF6E1;
@@ -52,7 +53,9 @@ const About = () => {
                 <Wrapper>
                     <GreyH3>{sanityHomePage.aboutSDMTitle.ja}</GreyH3>
                     <Text><BlockContent blocks={sanityHomePage._rawAboutSdm.ja} serializers={serializers} /></Text>
-                    <BlueButton>もっと知る</BlueButton>
+                    <StyledAnchor href='/who-we-are/'>
+                        <BlueButton>もっと知る</BlueButton>
+                    </StyledAnchor>
                 </Wrapper>
             </Container>
         </ColourDiv>

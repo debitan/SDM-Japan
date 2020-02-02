@@ -5,10 +5,11 @@ import BlockContent from '@sanity/block-content-to-react'
 
 import readyFor from '../images/readyFor.svg'
 import serializers from './serializers'
-import BlueButton from '../components/shared/BlueButton'
-import ColumnWrapper from '../components/shared/ColumnWrapper'
-import GreyH3 from '../components/shared/GreyH3'
-import RowWrapper from '../components/shared/RowWrapper'
+import BlueButton from './shared/BlueButton'
+import ColumnWrapper from './shared/ColumnWrapper'
+import GreyH3 from './shared/GreyH3'
+import RowWrapper from './shared/RowWrapper'
+import StyledAnchor from './shared/StyledAnchor'
 
 const ColourDiv = styled('div')`
     background-color: #FFF691;
@@ -71,7 +72,9 @@ const Donation = () => {
                         <p>
                             <BlockContent blocks={sanityFooter._rawDonateBody.ja} serializers={serializers} />
                         </p>
-                        <BlueButton>レディーフォーのサイトで詳しく読む</BlueButton>
+                        <StyledAnchor href='https://readyfor.jp/projects/talkingmats' target='_blank'>
+                            <BlueButton>レディーフォーのサイトで詳しく読む</BlueButton>
+                        </StyledAnchor>
                     </ColumnWrapper>
                 </FlexWrapper>
             </DonationWrapper>
