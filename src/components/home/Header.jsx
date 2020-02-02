@@ -32,10 +32,11 @@ const TopDiv = styled('div')`
     background-color: #FFF691;
 `
 
-const GreenText = styled('h4')`
+const GreenText = styled('h5')`
     margin: 2rem;
     color: #2CADAD;
     max-width: 495px;
+    h5 {font-size: 1.1rem;}
 `
 
 const BlackText = styled('p')`
@@ -82,7 +83,8 @@ const WrapperReverse = styled(Wrapper)`
 const SkillsWrapper = styled(Wrapper)`
     border-top: dashed 3px black;
     padding: 2rem 0;
-    justify-content: space-around;
+    justify-content: flex-start;
+    align-items: flex-start;
 `
 
 const WhiteCircle = styled('div')`
@@ -95,7 +97,7 @@ const WhiteCircle = styled('div')`
     align-items: center;
 `
 
-const SkillLogo = styled(Img)`
+const SkillLogo = styled('img')`
     width: 3rem;
     margin: 0 1rem;
 `
@@ -110,6 +112,12 @@ const SkillWrapper = styled(RowWrapper)`
 
 const SkillText = styled('span')`
     color: black;
+`
+
+const CartoonText = styled('span')`
+    font-size: 0.8rem;
+    margin: 0.5rem;
+    font-weight: 600;
 `
 
 const Header = () => {
@@ -155,9 +163,7 @@ const Header = () => {
                   skillImage {
                     image {
                       asset {
-                        fluid {
-                            ...GatsbySanityImageFluid
-                        }
+                        url
                       }
                     }
                     caption {
@@ -174,10 +180,11 @@ const Header = () => {
             <HeaderTopDiv>
                 <InnerContainer>
                     <Wrapper>
-                        <StyledImg fluid={sanityHomePage.headerImage.image.asset.fluid} alt={sanityHomePage.headerImage.caption} />
+                        <StyledImg fluid={sanityHomePage.headerImage.image.asset.fluid} alt={sanityHomePage.headerImage.caption.ja} />
                         <ColumnWrapper>
                             <GreenText><BlockContent blocks={sanityHomePage._rawHeader.ja} serializers={serializers} /></GreenText>
-                            <StyledImg fluid={sanityHomePage.cartoonImage.image.asset.fluid} alt={sanityHomePage.cartoonImage.caption} />
+                            <StyledImg fluid={sanityHomePage.cartoonImage.image.asset.fluid} alt={sanityHomePage.cartoonImage.caption.ja} />
+                            <CartoonText>{sanityHomePage.cartoonBody.ja}</CartoonText>
                         </ColumnWrapper>
                     </Wrapper>
                 </InnerContainer>
@@ -194,8 +201,8 @@ const Header = () => {
                         </WhiteCircle>
                         <ListWrapper>
                             {sanityHomePage.skill.map(skill =>
-                                <SkillWrapper>
-                                    <SkillLogo fluid={skill.skillImage.image.asset.fluid} alt={skill.skillImage.caption.ja} />
+                                <SkillWrapper key={skill.skillImage.caption.ja}>
+                                    <SkillLogo src={skill.skillImage.image.asset.url} alt={skill.skillImage.caption.ja} />
                                     <SkillText>{skill.skill.ja}</SkillText>
                                 </SkillWrapper>
                             )}

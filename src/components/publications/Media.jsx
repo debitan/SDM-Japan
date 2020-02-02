@@ -28,7 +28,7 @@ const ContentWrapper = styled(ColumnWrapper)`
 `
 
 const Description = styled('p')`
-    margin: 2rem;
+    margin: 2rem 0;
 `
 
 const Date = styled('p')`

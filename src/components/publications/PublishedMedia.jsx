@@ -45,7 +45,7 @@ const LinkWrapper = styled(ContentWrapper)`
 `
 
 const Description = styled('p')`
-    margin: 2rem;
+    margin: 2rem 0;
 `
 
 const DescriptionWrapper = styled('div')`

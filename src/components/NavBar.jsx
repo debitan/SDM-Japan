@@ -76,6 +76,7 @@ const LogoWrapper = styled(RowWrapper)`
 
 const StyledImage = styled('img')`
     width: 30rem;
+    max-width: 100%;
 `
 
 const Phone = styled('span')`

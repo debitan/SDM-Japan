@@ -98,16 +98,16 @@ function Footer() {
                   </FlexColumn2>
                   <FlexColumn3>
                     <LinkSection>私たちの活動</LinkSection>
-                    <StyledLink href="/shop/" location={location.pathname}>
+                    <StyledLink href="/what-we-do/" location={location.pathname}>
                       意思決定支援実践のための総合プログラム開発
                     </StyledLink>
-                    <StyledLink href="/events/" location={location.pathname}>
+                    <StyledLink href="/workshops/" location={location.pathname}>
                       研修・ワークショップ
                     </StyledLink>
-                    <StyledLink href="/weddings/" location={location.pathname}>
+                    <StyledLink href="/talking-mats/" location={location.pathname}>
                       トーキングマット
                     </StyledLink>
-                    <StyledLink href="/gallery/" location={location.pathname}>
+                    <StyledLink href="/collaboration/" location={location.pathname}>
                       他団体への協賛
                     </StyledLink>
                   </FlexColumn3>
@@ -115,21 +115,21 @@ function Footer() {
                 <RightSide>
                   <FlexColumn1>
                     <LinkSection>あなたにできること</LinkSection>
-                    <StyledLink href="/shop/" location={location.pathname}>
+                    <StyledLink href="/request-a-speaker/" location={location.pathname}>
                       講師を依頼する
                     </StyledLink>
                     <StyledLink href="/events/" location={location.pathname}>
                       イベント参加
                     </StyledLink>
-                    <StyledLink href="/weddings/" location={location.pathname}>
+                    <StyledLink href="/become-a-member/" location={location.pathname}>
                       会員になる
                     </StyledLink>
-                    <StyledLink href="/gallery/" location={location.pathname}>
+                    <StyledLink href="/register/" location={location.pathname}>
                       メーリングリスト登録・SNSフォローする
                     </StyledLink>
                   </FlexColumn1>
                   <FlexColumn2>
-                    <BoldStyledLink href="/news/" location={location.pathname}>ニューズ</BoldStyledLink>
+                    <BoldStyledLink href="/news/" location={location.pathname}>ニュース</BoldStyledLink>
                   </FlexColumn2>
                   <FlexColumn3>
                     <BoldStyledLink href="/contact/" location={location.pathname}>問い合わせ</BoldStyledLink>

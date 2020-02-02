@@ -98,11 +98,11 @@ const PublishedMedia = () => {
             }
             _rawEventBody
             event {
+                date {
+                    ja
+                }
                 _rawAudience
                 _rawCapacity
-                date {
-                ja
-                }
                 contents {
                     ja
                 }
@@ -151,6 +151,8 @@ const PublishedMedia = () => {
         }
     `)
 
+    sanityEventsPage.event.map(event => event.date.map(date => console.log(date.ja)))
+
     return (
         <PublicationsContainer>
             {sanityEventsPage.event.map(event =>
@@ -167,9 +169,11 @@ const PublishedMedia = () => {
                             <BlueTitles>
                                 {event.title.ja}
                             </BlueTitles>
-                            <BlueTitles>
-                                {event.date.ja}
-                            </BlueTitles>
+                            {event.date.map(date =>
+                                <BlueTitles key={date.ja}>
+                                    {date.ja}
+                                </BlueTitles>
+                            )}
                             <DescriptionGrid>
                                 <DescriptionTitle>
                                     {event.locationTitle.ja}

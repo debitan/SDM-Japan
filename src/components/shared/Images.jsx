@@ -8,7 +8,7 @@ const NarrowCoverImage = styled(Img)`
 
 const WideCoverImage = styled(Img)`
     min-height: 13rem;
-    width: 70%;
+    min-width: 20rem;
     margin: 2rem 0;
 
     @media (min-width: 992px) {

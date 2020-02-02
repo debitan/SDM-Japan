@@ -101,7 +101,7 @@ const OurActivities = () => {
                     {sanityOurActivities.activities.map(activity =>
                         <ActivityWrapper key={activity.ourActivity.ja}>
                             <StyledImg fluid={activity.ourActivityImage.image.asset.fluid} alt={activity.ourActivityImage.caption.ja} key={activity.ourActivityImage.caption.ja} />
-                            <StyledAnchor href={activity.link} >{activity.ourActivity.ja}</StyledAnchor>
+                            <StyledAnchor>{activity.ourActivity.ja}</StyledAnchor>
                         </ActivityWrapper>
                     )}
                 </ActivitiesWrapper>
