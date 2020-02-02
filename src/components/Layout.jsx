@@ -1,5 +1,5 @@
 import React from 'react'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Helmet from 'react-helmet'
 
 import SEO from "./SEO"
@@ -11,7 +11,6 @@ import Donation from "./Donation"
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 90%;
-    overflow-x: hidden;
     font-family: "M PLUS Rounded 1c", sans-serif;
 
     @media (min-width: 480px) {
@@ -22,7 +21,6 @@ const GlobalStyle = createGlobalStyle`
       }
       @media (min-width: 992px) {
         font-size: 100%;
-        overflow-x: visible;
       }
   }
 `

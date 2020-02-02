@@ -58,22 +58,14 @@ const CenterTextContainer = styled(TextContainer)`
     margin-right: auto;
 `
 
-const CenterColumnWrapper = styled(ColumnWrapper)`
-    margin-left: auto;
-    margin-right: auto;
-`
-
 const Cartoon = styled(Img)`
     width: 30rem;
     margin: 2rem 0;
     max-width: 100%;
+    max-height: fit-content;
 `
 
 const SectionFiveCartoon = styled(Cartoon)`
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-
     @media (min-width: 728px) {
         width: 80%;
     }
@@ -225,7 +217,7 @@ const WhoWeArePage = () => {
                 title={sanityWhoWeAre.sectionFourTitle.ja}
                 text={sanityWhoWeAre._rawSectionFourBody.ja}
             />
-            <CenterColumnWrapper>
+            <ColumnWrapper>
                 <TextContainer>
                     <p>
                         <BlockContent blocks={sanityWhoWeAre._rawSectionFourBodyCont.ja} serializers={serializers} />
@@ -235,11 +227,13 @@ const WhoWeArePage = () => {
                         <Cartoon fluid={sanityWhoWeAre.sectionFourImage[1].image.asset.fluid} alt={sanityWhoWeAre.sectionFourImage[1].caption.ja} />
                     </CartoonWrapper>
                 </TextContainer>
-            </CenterColumnWrapper>
+            </ColumnWrapper>
             <CenterTextContainer>
                 <GreyH3>{sanityWhoWeAre.sectionFiveTitle.ja}</GreyH3>
                 <Text><BlockContent blocks={sanityWhoWeAre._rawSectionFiveBody.ja} serializers={serializers} /></Text>
-                <SectionFiveCartoon fluid={sanityWhoWeAre.sectionFiveImage.image.asset.fluid} alt={sanityWhoWeAre.sectionFiveImage.caption.ja} />
+                <div>
+                    <SectionFiveCartoon fluid={sanityWhoWeAre.sectionFiveImage.image.asset.fluid} alt={sanityWhoWeAre.sectionFiveImage.caption.ja} />
+                </div>
             </CenterTextContainer>
             <BackgroundImageSection
                 left
