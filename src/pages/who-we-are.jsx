@@ -56,10 +56,6 @@ const StyledImg = styled(Img)`
 const CenterTextContainer = styled(TextContainer)`
     margin-left: auto;
     margin-right: auto;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 `
 
 const CenterColumnWrapper = styled(ColumnWrapper)`
@@ -74,8 +70,9 @@ const Cartoon = styled(Img)`
 `
 
 const SectionFiveCartoon = styled(Cartoon)`
-    width: 100%;
     max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 
     @media (min-width: 728px) {
         width: 80%;
