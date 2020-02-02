@@ -151,8 +151,6 @@ const PublishedMedia = () => {
         }
     `)
 
-    sanityEventsPage.event.map(event => event.date.map(date => console.log(date.ja)))
-
     return (
         <PublicationsContainer>
             {sanityEventsPage.event.map(event =>

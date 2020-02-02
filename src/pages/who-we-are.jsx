@@ -63,6 +63,8 @@ const Cartoon = styled(Img)`
     margin: 2rem 0;
     max-width: 100%;
     max-height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 const SectionFiveCartoon = styled(Cartoon)`
