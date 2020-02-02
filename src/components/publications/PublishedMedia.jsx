@@ -10,7 +10,7 @@ import ColumnWrapper from '../shared/ColumnWrapper'
 import BlueText from '../shared/BlueText'
 import BlueButton from '../shared/BlueButton'
 import RowWrapper from '../shared/RowWrapper'
-import Link from '../shared/Link'
+import StyledAnchor from '../shared/StyledAnchor'
 import { NarrowCoverImage, WideCoverImage } from '../shared/Images'
 
 const PublicationsContainer = styled(ContainerCentre)`
@@ -112,9 +112,9 @@ const PublishedMedia = () => {
                             </Description>
                             <LinkWrapper>
                                 {publication.link.map(link =>
-                                    <Link href={link.url} target='_blank' key={link.url}>
+                                    <StyledAnchor href={link.url} target='_blank' key={link.url}>
                                         <BlueButton>{link.link.ja}</BlueButton>
-                                    </Link>
+                                    </StyledAnchor>
                                 )}
                             </LinkWrapper>
                         </DescriptionWrapper>
