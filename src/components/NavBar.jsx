@@ -102,8 +102,8 @@ function NavBar() {
     `)
 
     const aboutUsLinks = ["/who-we-are/", "/team/", "/reports/", "/publications/"]
-    const activitiesLinks = ["/programme/", "/workshops/", "/talking-mat/", "/collaboration/"]
-    const whatYouCanDoLinks = ["/request-a-speaker/", "/events/", "/become-a-member/", "/stay-in-touch/"]
+    const activitiesLinks = ["/what-we-do/", "/workshops/", "/talking-mat/", "/collaboration/"]
+    const whatYouCanDoLinks = ["/request-a-speaker/", "/events/", "/become-a-member/", "/register/"]
 
     return (
         // <MyContext.Consumer>
