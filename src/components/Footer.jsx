@@ -54,6 +54,9 @@ const StyledLink = styled(StyledAnchor)`
   border-bottom: ${props =>
     props.location === props.href ? "2px solid black" : "none"};
   font-size: 14px;
+  :hover {
+        opacity: 60%;
+    }
 `
 
 const BoldStyledLink = styled(StyledLink)`
