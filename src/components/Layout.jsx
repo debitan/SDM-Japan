@@ -8,10 +8,13 @@ import Footer from "./Footer"
 import MailingList from "./MailingList"
 import Donation from "./Donation"
 
+const FontWrapper = styled('body')`
+  font-family: "M PLUS Rounded 1c";
+`
+
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 90%;
-    font-family: "M PLUS Rounded 1c", sans-serif;
 
     @media (min-width: 480px) {
         font-size: 93%;
@@ -38,11 +41,13 @@ function Layout({ children }) {
       </Helmet>
       <SEO lang="ja" />
       <GlobalStyle />
-      <NavBar />
-      {children}
-      <Donation />
-      <MailingList />
-      <Footer />
+      <FontWrapper>
+        <NavBar />
+        {children}
+        <Donation />
+        <MailingList />
+        <Footer />
+      </FontWrapper>
     </>
   )
 }
