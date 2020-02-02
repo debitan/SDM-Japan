@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Location } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 import logo from '../images/logo.svg'
 import StyledAnchor from './shared/StyledAnchor'
@@ -59,6 +60,19 @@ const StyledNavDropdown = styled(NavDropdown)`
 `
 
 const StyledLink = styled(StyledAnchor)`
+    align-self: center;
+    font-size: 18px;
+    margin: 10px 15px;
+    border-bottom: ${props => props.location === props.href ? '2px solid black' : 'none'};
+`
+
+const ScrollToButton = styled('button')`
+    color: black;
+    text-decoration: none;
+    :hover, :visited, :active, :focus {
+        color: black;
+        text-decoration: none;
+    }
     align-self: center;
     font-size: 18px;
     margin: 10px 15px;
@@ -131,21 +145,21 @@ function NavBar() {
                                             <DropdownItem href="/publications/" location={location.pathname}>出版・メディア</DropdownItem>
                                         </StyledNavDropdown>
                                         <StyledNavDropdown title="私たちの活動" id="basic-nav-dropdown" location={location.pathname} links={activitiesLinks}>
-                                            <DropdownItem href="#action/3.1" location={location.pathname}>意思決定支援実践のための総合プログラム開発</DropdownItem>
-                                            <DropdownItem href="#action/3.2" location={location.pathname}>研修 ・ ワークショップ</DropdownItem>
-                                            <DropdownItem href="#action/3.3" location={location.pathname}>トーキングマット</DropdownItem>
-                                            <DropdownItem href="#action/3.3" location={location.pathname}>他団体への協賛</DropdownItem>
+                                            <DropdownItem href="/what-we-do/" location={location.pathname}>意思決定支援実践のための総合プログラム開発</DropdownItem>
+                                            <DropdownItem href="/workshops/" location={location.pathname}>研修 ・ ワークショップ</DropdownItem>
+                                            <DropdownItem href="/talking-mats/" location={location.pathname}>トーキングマット</DropdownItem>
+                                            <DropdownItem href="/collaboration/" location={location.pathname}>他団体への協賛</DropdownItem>
                                         </StyledNavDropdown>
                                         <StyledNavDropdown title="あなたにできること" id="basic-nav-dropdown" location={location.pathname} links={whatYouCanDoLinks}>
-                                            <DropdownItem href="#action/3.1" location={location.pathname}>講師を依頼する</DropdownItem>
+                                            <DropdownItem href="/request-a-speaker/" location={location.pathname}>講師を依頼する</DropdownItem>
                                             <DropdownItem href="/events/" location={location.pathname}>イベント参加</DropdownItem>
-                                            <DropdownItem href="#action/3.3" location={location.pathname}>会員になる</DropdownItem>
-                                            <DropdownItem href="#action/3.3" location={location.pathname}>メーリングリスト登録・SNSフォローする</DropdownItem>
+                                            <DropdownItem href="/become-a-member/" location={location.pathname}>会員になる</DropdownItem>
+                                            <DropdownItem href="/register/" location={location.pathname}>メーリングリスト登録・SNSフォローする</DropdownItem>
                                         </StyledNavDropdown>
                                         <StyledLink href="/news/" location={location.pathname}>ニュース</StyledLink>
                                         <StyledLink href="/contact/" location={location.pathname}>問い合わせ</StyledLink>
                                         <DonationLink>
-                                            <StyledLink style={{ "color": "white", "borderColor": "white" }} href="/donate" location={location.pathname}>寄付する</StyledLink>
+                                            <StyledLink style={{ "color": "white", "borderColor": "white", "cursor": "pointer" }} onClick={() => scrollTo('#donate')} location={location.pathname}>寄付する</StyledLink>
                                         </DonationLink>
                                     </Nav>
                                 </Navbar.Collapse>

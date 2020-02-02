@@ -62,7 +62,7 @@ const Donation = () => {
     `)
 
     return (
-        <ColourDiv>
+        <ColourDiv id="donate">
             <DonationWrapper>
                 <GreyH3>{sanityFooter.donateTitle.ja}</GreyH3>
                 <FlexWrapper>

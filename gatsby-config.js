@@ -40,9 +40,11 @@ module.exports = {
       fonts: [
         {
           family: `M PLUS Rounded 1c`,
+          variants: [`400`, `500`, `600`, `700`]
         }
       ],
     },
-  }
+  },
+  `gatsby-plugin-smoothscroll`
   ],
 }
