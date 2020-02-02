@@ -45,8 +45,9 @@ const FlexWrapper = styled(RowWrapper)`
 `
 
 const StyledImg = styled(Img)`
-    min-width: 7.5rem;
+    min-width: 15rem;
     margin-bottom: 20px;
+    max-width: 100%;
 
     @media (min-width: 768px) {
         margin-right: 40px;
