@@ -103,7 +103,7 @@ const MailingList = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(email)
+      body: JSON.stringify({ email: email })
     })
     const text = await res.text()
     handleResponse(res.status, text)
