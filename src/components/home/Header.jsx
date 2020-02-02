@@ -33,9 +33,9 @@ const TopDiv = styled('div')`
 `
 
 const GreenText = styled('h5')`
-    margin: 2rem;
+    margin: 2rem 0;
     color: #2CADAD;
-    max-width: 495px;
+    max-width: 35rem;
     h5 {font-size: 1.1rem;}
 `
 

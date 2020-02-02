@@ -36,7 +36,7 @@ const LinkWrapper = styled(ContentWrapper)`
     max-width: 100%;
 
     button {
-        margin: 0.5rem 0.5rem;
+        margin: 1rem 0.5rem;
     }
 
     @media (min-width: 992px) {
