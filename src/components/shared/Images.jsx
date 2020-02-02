@@ -13,6 +13,7 @@ const WideCoverImage = styled(Img)`
 
     @media (min-width: 992px) {
         width: 100%;
+        max-width: 20rem;
     }
 `
 
