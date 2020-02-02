@@ -66,19 +66,6 @@ const StyledLink = styled(StyledAnchor)`
     border-bottom: ${props => props.location === props.href ? '2px solid black' : 'none'};
 `
 
-const ScrollToButton = styled('button')`
-    color: black;
-    text-decoration: none;
-    :hover, :visited, :active, :focus {
-        color: black;
-        text-decoration: none;
-    }
-    align-self: center;
-    font-size: 18px;
-    margin: 10px 15px;
-    border-bottom: ${props => props.location === props.href ? '2px solid black' : 'none'};
-`
-
 const DonationLink = styled(RowWrapper)`
     background-color: blue;
 `
