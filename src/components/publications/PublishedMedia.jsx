@@ -31,12 +31,12 @@ const ContentWrapper = styled(ColumnWrapper)`
     }
 `
 
-const LinkWrapper = styled(ContentWrapper)`
+const LinkWrapper = styled(RowWrapper)`
     flex-wrap: wrap;
     max-width: 100%;
 
     button {
-        margin: 1rem 0.5rem;
+        margin: 1rem 0.2rem;
     }
 
     @media (min-width: 992px) {
