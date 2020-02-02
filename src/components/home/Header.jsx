@@ -24,7 +24,7 @@ const TopDiv = styled('div')`
     display: flex;
     justify-content: center;
     align-items: top;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     min-height: fit-content;
     max-width: 1900px;
     margin-left: auto;
@@ -73,18 +73,21 @@ const Wrapper = styled(ColumnWrapper)`
 `
 
 const WrapperReverse = styled(Wrapper)`
-    margin: 4rem 0;
-
+    margin: 1rem 0;
+    border-bottom: dashed 3px black;
     @media (min-width: 1280px) {
         flex-direction: row-reverse;
     }
 `
 
 const SkillsWrapper = styled(Wrapper)`
-    border-top: dashed 3px black;
-    padding: 2rem 0;
+    padding: 1rem 0;
+    justify-content: center;
+
+    @media (min-width: 1280px) {
     justify-content: flex-start;
     align-items: flex-start;
+    }
 `
 
 const WhiteCircle = styled('div')`
@@ -116,7 +119,7 @@ const SkillText = styled('span')`
 
 const CartoonText = styled('span')`
     font-size: 0.8rem;
-    margin: 0.5rem;
+    margin: 0.5rem 0;
     font-weight: 600;
 `
 
