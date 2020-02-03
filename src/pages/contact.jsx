@@ -21,14 +21,12 @@ const MapImage = styled(Img)`
 
 const Wrapper = styled(ColumnWrapper)`
     width: 100%;
-    align-items: flex-start;
     padding: 2rem;
     border-bottom: 1px solid #979797;
 
     @media (min-width: 768px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        align-items: center;
     }
 `
 
