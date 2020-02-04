@@ -10,11 +10,13 @@ import Donation from "./Donation"
 
 const FontWrapper = styled('body')`
   font-family: "M PLUS Rounded 1c";
+  overflow-x: hidden;
 `
 
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 90%;
+    overflow-x: hidden;
 
     @media (min-width: 480px) {
         font-size: 93%;

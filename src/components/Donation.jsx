@@ -30,6 +30,7 @@ const DonationWrapper = styled('div')`
     min-height: 290px;
     padding: 30px;
     max-width: 60rem;
+    max-width: 100%;
 `
 
 const FlexWrapper = styled(RowWrapper)`
