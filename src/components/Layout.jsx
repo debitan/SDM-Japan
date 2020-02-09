@@ -15,7 +15,8 @@ const FontWrapper = styled('body')`
 const GlobalStyle = createGlobalStyle`
   html {
     font-size: 90%;
-    overflow: initial;
+    overflow-y: initial;
+    overflow-x: hidden;
 
     @media (min-width: 480px) {
         font-size: 93%;

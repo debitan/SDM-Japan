@@ -31,6 +31,7 @@ const FlexColumn1 = styled("div")`
   justify-content: flex-start;
   align-items: flex-start;
   flex-flow: column;
+  max-height: fit-content;
 
   @media (min-width: 992px) {
     grid-column: 1;
