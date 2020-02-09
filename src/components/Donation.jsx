@@ -28,13 +28,13 @@ const DonationWrapper = styled('div')`
     justify-content: center;
     align-items: center;
     min-height: 290px;
-    padding: 30px;
+    padding: 2rem;
     max-width: 60rem;
     max-width: 100%;
 `
 
 const FlexWrapper = styled(RowWrapper)`
-    padding: 10px;
+    padding: 0.5rem;
     flex-direction: column;
 
     @media (min-width: 768px) {
@@ -49,6 +49,11 @@ const StyledImg = styled('img')`
     @media (min-width: 768px) {
         margin-right: 40px;
     }
+`
+
+const DonationButton = styled(BlueButton)`
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
 `
 
 const Donation = () => {
@@ -74,7 +79,9 @@ const Donation = () => {
                             <BlockContent blocks={sanityFooter._rawDonateBody.ja} serializers={serializers} />
                         </p>
                         <StyledAnchor href='https://readyfor.jp/projects/talkingmats' target='_blank'>
-                            <BlueButton>レディーフォーのサイトで詳しく読む</BlueButton>
+                            <DonationButton>
+                                レディーフォーのサイトで詳しく読む
+                            </DonationButton>
                         </StyledAnchor>
                     </ColumnWrapper>
                 </FlexWrapper>
