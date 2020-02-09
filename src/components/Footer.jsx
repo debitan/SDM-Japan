@@ -8,6 +8,7 @@ import StyledAnchor from "./shared/StyledAnchor"
 const FooterWrapper = styled("footer")`
   background-color: rgb(236, 237, 237);
   padding: 20px;
+  overflow: hidden;
 `
 
 const Grid = styled("div")`
