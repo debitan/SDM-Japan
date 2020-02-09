@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 
 import SEO from '../components/SEO'
 import Layout from '../components/Layout'
+import YellowTitle from '../components/YellowTitle'
 import OurActivities from '../components/OurActivities'
 import BackgroundImageSection from '../components/shared/BackgroundImageSection'
 import GreyH3 from '../components/shared/GreyH3'
@@ -77,6 +78,18 @@ const SectionFiveCartoon = styled(Cartoon)`
 const CartoonWrapper = styled(ColumnWrapper)`
     @media (min-width: 768px) {
         flex-direction: row;
+    }
+`
+
+const Wrapper = styled('div')`
+    margin: 2rem 0;
+
+    @media (min-width: 992px) {
+        margin: 4.5rem 0 2rem 0;
+    }
+
+    @media (min-width: 1280px) {
+        margin: 6.5rem 0 2rem 0;
     }
 `
 
@@ -189,67 +202,70 @@ const WhoWeArePage = () => {
     return (
         <Layout>
             <SEO title='Who we are' />
-            <BackgroundImageSection
-                right
-                image={sanityWhoWeAre.sectionOneBackgroundImage.image.asset.fluid}
-                altText={sanityWhoWeAre.sectionOneBackgroundImage.caption.ja}
-                title={sanityWhoWeAre.sectionOneTitle.ja}
-                text={sanityWhoWeAre._rawSectionOneBody.ja}
-            />
-            <CenterTextContainer>
-                <GreyH3>{sanityWhoWeAre.sectionTwoTitle.ja}</GreyH3>
-                <Text><BlockContent blocks={sanityWhoWeAre._rawSectionTwoBody.ja} serializers={serializers} /></Text>
-            </CenterTextContainer>
-            <ColourDiv>
-                <LogoWrapper>
-                    <GreyH3>{sanityWhoWeAre.sectionThreeTitle.ja}</GreyH3>
-                    <FlexWrapper>
-                        <StyledImg fluid={sanityWhoWeAre.sectionThreeImage.image.asset.fluid} alt={sanityWhoWeAre.sectionThreeImage.caption.ja} />
-                        <TextContainer maxWidth='30rem'>
-                            <p>
-                                <BlockContent blocks={sanityWhoWeAre._rawSectionThreeBody.ja} serializers={serializers} />
-                            </p>
-                        </TextContainer>
-                    </FlexWrapper>
-                </LogoWrapper>
-            </ColourDiv>
-            <BackgroundImageSection
-                right
-                image={sanityWhoWeAre.sectionFourBackgroundImage.image.asset.fluid}
-                altText={sanityWhoWeAre.sectionFourBackgroundImage.caption.ja}
-                title={sanityWhoWeAre.sectionFourTitle.ja}
-                text={sanityWhoWeAre._rawSectionFourBody.ja}
-            />
-            <ColumnWrapper>
-                <TextContainer>
+            <YellowTitle title='私たちについて' />
+            <Wrapper>
+                <BackgroundImageSection
+                    right
+                    image={sanityWhoWeAre.sectionOneBackgroundImage.image.asset.fluid}
+                    altText={sanityWhoWeAre.sectionOneBackgroundImage.caption.ja}
+                    title={sanityWhoWeAre.sectionOneTitle.ja}
+                    text={sanityWhoWeAre._rawSectionOneBody.ja}
+                />
+                <CenterTextContainer>
+                    <GreyH3>{sanityWhoWeAre.sectionTwoTitle.ja}</GreyH3>
+                    <Text><BlockContent blocks={sanityWhoWeAre._rawSectionTwoBody.ja} serializers={serializers} /></Text>
+                </CenterTextContainer>
+                <ColourDiv>
+                    <LogoWrapper>
+                        <GreyH3>{sanityWhoWeAre.sectionThreeTitle.ja}</GreyH3>
+                        <FlexWrapper>
+                            <StyledImg fluid={sanityWhoWeAre.sectionThreeImage.image.asset.fluid} alt={sanityWhoWeAre.sectionThreeImage.caption.ja} />
+                            <TextContainer maxWidth='30rem'>
+                                <p>
+                                    <BlockContent blocks={sanityWhoWeAre._rawSectionThreeBody.ja} serializers={serializers} />
+                                </p>
+                            </TextContainer>
+                        </FlexWrapper>
+                    </LogoWrapper>
+                </ColourDiv>
+                <BackgroundImageSection
+                    right
+                    image={sanityWhoWeAre.sectionFourBackgroundImage.image.asset.fluid}
+                    altText={sanityWhoWeAre.sectionFourBackgroundImage.caption.ja}
+                    title={sanityWhoWeAre.sectionFourTitle.ja}
+                    text={sanityWhoWeAre._rawSectionFourBody.ja}
+                />
+                <ColumnWrapper>
+                    <TextContainer>
+                        <p>
+                            <BlockContent blocks={sanityWhoWeAre._rawSectionFourBodyCont.ja} serializers={serializers} />
+                        </p>
+                        <CartoonWrapper>
+                            <Cartoon fluid={sanityWhoWeAre.sectionFourImage[0].image.asset.fluid} alt={sanityWhoWeAre.sectionFourImage[0].caption.ja} />
+                            <Cartoon fluid={sanityWhoWeAre.sectionFourImage[1].image.asset.fluid} alt={sanityWhoWeAre.sectionFourImage[1].caption.ja} />
+                        </CartoonWrapper>
+                    </TextContainer>
+                </ColumnWrapper>
+                <CenterTextContainer>
+                    <GreyH3>{sanityWhoWeAre.sectionFiveTitle.ja}</GreyH3>
+                    <Text><BlockContent blocks={sanityWhoWeAre._rawSectionFiveBody.ja} serializers={serializers} /></Text>
+                    <div>
+                        <SectionFiveCartoon fluid={sanityWhoWeAre.sectionFiveImage.image.asset.fluid} alt={sanityWhoWeAre.sectionFiveImage.caption.ja} />
+                    </div>
+                </CenterTextContainer>
+                <BackgroundImageSection
+                    left
+                    image={sanityWhoWeAre.sectionSixBackgroundImage.image.asset.fluid}
+                    altText={sanityWhoWeAre.sectionSixBackgroundImage.caption.ja}
+                    title={sanityWhoWeAre.sectionSixTitle.ja}
+                    text={sanityWhoWeAre._rawSectionSixBody.ja}
+                />
+                <CenterTextContainer>
                     <p>
-                        <BlockContent blocks={sanityWhoWeAre._rawSectionFourBodyCont.ja} serializers={serializers} />
+                        <BlockContent blocks={sanityWhoWeAre._rawSectionSixBodyCont.ja} serializers={serializers} />
                     </p>
-                    <CartoonWrapper>
-                        <Cartoon fluid={sanityWhoWeAre.sectionFourImage[0].image.asset.fluid} alt={sanityWhoWeAre.sectionFourImage[0].caption.ja} />
-                        <Cartoon fluid={sanityWhoWeAre.sectionFourImage[1].image.asset.fluid} alt={sanityWhoWeAre.sectionFourImage[1].caption.ja} />
-                    </CartoonWrapper>
-                </TextContainer>
-            </ColumnWrapper>
-            <CenterTextContainer>
-                <GreyH3>{sanityWhoWeAre.sectionFiveTitle.ja}</GreyH3>
-                <Text><BlockContent blocks={sanityWhoWeAre._rawSectionFiveBody.ja} serializers={serializers} /></Text>
-                <div>
-                    <SectionFiveCartoon fluid={sanityWhoWeAre.sectionFiveImage.image.asset.fluid} alt={sanityWhoWeAre.sectionFiveImage.caption.ja} />
-                </div>
-            </CenterTextContainer>
-            <BackgroundImageSection
-                left
-                image={sanityWhoWeAre.sectionSixBackgroundImage.image.asset.fluid}
-                altText={sanityWhoWeAre.sectionSixBackgroundImage.caption.ja}
-                title={sanityWhoWeAre.sectionSixTitle.ja}
-                text={sanityWhoWeAre._rawSectionSixBody.ja}
-            />
-            <CenterTextContainer>
-                <p>
-                    <BlockContent blocks={sanityWhoWeAre._rawSectionSixBodyCont.ja} serializers={serializers} />
-                </p>
-            </CenterTextContainer>
+                </CenterTextContainer>
+            </Wrapper>
             <OurActivities />
         </Layout>
     )

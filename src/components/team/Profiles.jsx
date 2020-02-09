@@ -15,20 +15,20 @@ const ColourDiv = styled('div')`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0;
     max-width: 1900px;
     margin-left: auto;
     margin-right: auto;
 `
 
 const Wrapper = styled(ColumnWrapper)`
-    margin: 2rem 0;
+    margin: 3rem 0;
     margin-left: auto;
     margin-right: auto;
     justify-content: space-between;
 
     @media (min-width: 980px) {
         flex-direction: row;
+        margin: 1rem 0;
     }
 `
 

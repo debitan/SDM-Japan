@@ -9,11 +9,13 @@ import instagram from '../images/instagram.svg'
 import serializers from '../components/serializers'
 import SEO from '../components/SEO'
 import Layout from '../components/Layout'
+import YellowTitle from '../components/YellowTitle'
 import Link from '../components/shared/Link'
 import ColumnWrapper from '../components/shared/ColumnWrapper'
 import ContainerCentre from '../components/shared/ContainerCentre'
 import BlueText from '../components/shared/BlueText'
 import RowWrapper from '../components/shared/RowWrapper'
+import ContentWrapper from '../components/shared/ContentWrapper'
 
 const MapImage = styled(Img)`
     min-width: 100%;
@@ -71,27 +73,30 @@ const ContactPage = () => {
     return (
         <Layout>
             <SEO title='Contact' />
-            <ContainerCentre>
-                <Wrapper>
-                    <p>
-                        <BlockContent blocks={sanityContact._rawContactBody.ja} serializers={serializers} />
-                    </p>
-                    <MapLink href={staticMap.mapUrl} target='_blank'>
-                        <MapImage fluid={staticMap.childFile.childImageSharp.fluid} />
-                    </MapLink>
-                </Wrapper>
-                <ColumnWrapper>
-                    <BlueText>{sanityContact.follow.ja}</BlueText>
-                    <RowWrapper>
-                        <Link href={sanityContact.instagramUrl} target='_blank'>
-                            <Logo src={instagram} alt='インストグラムのロゴ' />
-                        </Link>
-                        <Link href={sanityContact.facebookUrl} target='_blank'>
-                            <Logo src={facebook} alt='フェイスブックのロゴ' />
-                        </Link>
-                    </RowWrapper>
-                </ColumnWrapper>
-            </ContainerCentre>
+            <YellowTitle title='問い合わせ' />
+            <ContentWrapper>
+                <ContainerCentre>
+                    <Wrapper>
+                        <p>
+                            <BlockContent blocks={sanityContact._rawContactBody.ja} serializers={serializers} />
+                        </p>
+                        <MapLink href={staticMap.mapUrl} target='_blank'>
+                            <MapImage fluid={staticMap.childFile.childImageSharp.fluid} />
+                        </MapLink>
+                    </Wrapper>
+                    <ColumnWrapper>
+                        <BlueText>{sanityContact.follow.ja}</BlueText>
+                        <RowWrapper>
+                            <Link href={sanityContact.instagramUrl} target='_blank'>
+                                <Logo src={instagram} alt='インストグラムのロゴ' />
+                            </Link>
+                            <Link href={sanityContact.facebookUrl} target='_blank'>
+                                <Logo src={facebook} alt='フェイスブックのロゴ' />
+                            </Link>
+                        </RowWrapper>
+                    </ColumnWrapper>
+                </ContainerCentre>
+            </ContentWrapper>
         </Layout>
     )
 }

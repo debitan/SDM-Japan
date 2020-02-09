@@ -25,6 +25,10 @@ const StyledImage = styled(Img)`
 const ReportWrapper = styled(ColumnWrapper)`
     margin: 0 2rem 2rem 2rem;
     min-width: 240px;
+
+    @media (min-width: 992px) {
+        margin-top: -2rem;
+    }
 `
 
 const Download = styled('a')`
