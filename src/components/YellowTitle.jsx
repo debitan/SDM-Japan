@@ -20,7 +20,7 @@ const ColourDiv = styled('div')`
 
 const Title = styled('h5')`
     font-weight: 600;
-    padding-top: 4rem;
+    padding-top: 6rem;
 `
 
 const StyledImg = styled('img')`
