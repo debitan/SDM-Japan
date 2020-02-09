@@ -24,7 +24,6 @@ const Title = styled('h5')`
 `
 
 const StyledImg = styled('img')`
-
     @media (min-width: 992px) {
     min-width: 1900px;
     min-height: 10rem;
