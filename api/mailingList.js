@@ -8,7 +8,7 @@ export default async function(req, res) {
   } = req.body
 
   const content = {
-    to: 'index@sdm-japan.net',
+    to: 'info@sdm-japan.net',
     from: email,
     subject: `メーリングアドレス登録の依頼 From - ${email}`,
     text: `
