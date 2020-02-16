@@ -45,6 +45,12 @@ module.exports = {
       ],
     },
   },
-  `gatsby-plugin-smoothscroll`
+  `gatsby-plugin-smoothscroll`,
+  {
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: "UA-158625944-1",
+    },
+  },
   ],
 }
