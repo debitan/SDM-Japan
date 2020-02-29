@@ -9,6 +9,7 @@ import ColumnWrapper from '../shared/ColumnWrapper'
 import ContainerCentre from '../shared/ContainerCentre'
 import StyledAnchor from '../shared/StyledAnchor'
 import GreyH3 from '../shared/GreyH3'
+import { WideCoverImage, NarrowCoverImage } from '../shared/Images'
 import serializers from '../serializers'
 
 
@@ -16,20 +17,13 @@ const EventsWrapper = styled(RowWrapper)`
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-
-    /* @media (min-width: 666px) {
-        justify-content: flex-start;
-    } */
-`
-
-const StyledImage = styled(Img)`
-    min-width: 25rem;
-    max-height: 35rem;
-    margin-bottom: 1rem;
 `
 
 const ImageWrapper = styled('div')`
-    height: 35rem;
+    height: fit-content;
+    width: 100%;
+    justify-content: center;
+    display: flex;
 `
 
 const EventWrapper = styled(ColumnWrapper)`
@@ -125,7 +119,11 @@ const Events = () => {
                     <StyledAnchor href='/events/' key={event.title.ja}>
                         <EventWrapper>
                             <ImageWrapper>
-                                <StyledImage fluid={event.image.image.asset.fluid} alt={event.image.caption.ja} />
+                                {event.image.image.asset._rawMetadata.dimensions.aspectRatio > 1 ?
+                                    <WideCoverImage fluid={event.image.image.asset.fluid} alt={event.image.caption.ja} />
+                                    :
+                                    <NarrowCoverImage fluid={event.image.image.asset.fluid} alt={event.image.caption.ja} />
+                                }
                             </ImageWrapper>
                             <BoldText>{event.title.ja}</BoldText>
                             {event.date.map(date =>
