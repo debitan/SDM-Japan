@@ -23,7 +23,6 @@ export default async function(req, res) {
     await sgMail.send(content)
     res.status(200).send('登録しました')
   } catch (error) {
-    console.log('ERROR', error)
     res.status(400).send(`登録できませんでした: ${error}`)
   }
 }

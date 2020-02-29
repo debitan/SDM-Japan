@@ -24,8 +24,6 @@ const TalkingMats = () => {
         }
     `)
 
-    console.log(sanityTalkingMats._rawBody.ja)
-
     return (
         <Layout>
             <SEO title='What we do' />
