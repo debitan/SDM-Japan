@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import BlockContent from '@sanity/block-content-to-react'
 
 import RowWrapper from '../shared/RowWrapper'
@@ -108,8 +107,6 @@ const Events = () => {
         }
     }
     `)
-
-    console.log(sanityEventsPage.event.map(event => event.startDate))
 
     return (
         <TextAlignedContainer>

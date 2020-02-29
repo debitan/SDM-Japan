@@ -7,6 +7,8 @@ module.exports = {
     title: `SDM-Japan`,
     description: `SDM-Japanは、障害のあるなしにかかわらず、誰もが自信と誇りをもって、自分の思いを述べ、心からの希望に基づいて意思決定することができる社会を目指しています。`,
     author: `@ThisisDMatthews`,
+    url: 'https://sdm-japan.net',
+    image: '/images/icon.png'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -50,6 +52,24 @@ module.exports = {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
       trackingId: "UA-158625944-1",
+    },
+  },
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: "SDM-Japan",
+      short_name: "SDM-Japan",
+      start_url: "/",
+      background_color: "#FFF691",
+      theme_color: "#FFF691",
+      // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+      // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+      display: "standalone",
+      icon: "src/images/icon.png", // This path is relative to the root of the site.
+      // An optional attribute which provides support for CORS check.
+      // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+      // Any invalid keyword or empty string defaults to `anonymous`
+      crossOrigin: `use-credentials`,
     },
   },
   ],
