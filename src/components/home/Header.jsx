@@ -32,11 +32,14 @@ const TopDiv = styled('div')`
     background-color: #FFF691;
 `
 
-const GreenText = styled('h5')`
+const GreenText = styled('div')`
     margin: 2rem 0;
     color: #2CADAD;
     max-width: 35rem;
-    h5 {font-size: 1.1rem;}
+    h5 {
+        font-size: 1.1rem;
+        text-align: left
+    }
 `
 
 const BlackText = styled('p')`
