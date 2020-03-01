@@ -19,10 +19,10 @@ const PageContainer = styled('div')`
 const ButtonWrapper = styled(ColumnWrapper)`
     margin-top: 2rem;
     margin-bottom: -1rem;
-    padding: 0 9rem;
     justify-content: space-evenly;
 
     @media (min-width: 992px) {
+        padding: 0 9rem;
         margin-top: 6rem;
         margin-bottom: -1.5rem;
         flex-direction: row;
