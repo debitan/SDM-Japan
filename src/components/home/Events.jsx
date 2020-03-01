@@ -22,12 +22,13 @@ const ImageWrapper = styled('div')`
     height: fit-content;
     width: 100%;
     justify-content: center;
+    height: 354px;
     display: flex;
 `
 
 const EventWrapper = styled(ColumnWrapper)`
-    margin: 2rem 5rem 0 5rem;
-    max-width: 20rem;
+    margin: 2rem 2rem 0 2rem;
+    max-width: 18rem;
     align-items: flex-start;
     text-align: left;
 `

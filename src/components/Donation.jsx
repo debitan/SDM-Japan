@@ -10,6 +10,7 @@ import ColumnWrapper from './shared/ColumnWrapper'
 import GreyH3 from './shared/GreyH3'
 import RowWrapper from './shared/RowWrapper'
 import StyledAnchor from './shared/StyledAnchor'
+import ContainerCentre from './shared/ContainerCentre'
 
 const ColourDiv = styled('div')`
     background-color: #FFF691;
@@ -28,7 +29,7 @@ const DonationWrapper = styled('div')`
     justify-content: center;
     align-items: center;
     min-height: 290px;
-    padding: 2rem;
+    /* padding: 2rem; */
     max-width: 60rem;
     max-width: 100%;
 `
@@ -39,6 +40,7 @@ const FlexWrapper = styled(RowWrapper)`
 
     @media (min-width: 768px) {
         flex-direction: row;
+        align-items: flex-start;
     }
 `
 
@@ -71,20 +73,22 @@ const Donation = () => {
     return (
         <ColourDiv id="donate">
             <DonationWrapper>
-                <GreyH3>{sanityFooter.donateTitle.ja}</GreyH3>
-                <FlexWrapper>
-                    <StyledImg src={readyFor} alt='Ready forのロゴ' />
-                    <ColumnWrapper>
-                        <p>
-                            <BlockContent blocks={sanityFooter._rawDonateBody.ja} serializers={serializers} />
-                        </p>
-                        <StyledAnchor href='https://readyfor.jp/projects/talkingmats' target='_blank'>
-                            <DonationButton>
-                                レディーフォーのサイトで詳しく読む
-                            </DonationButton>
-                        </StyledAnchor>
-                    </ColumnWrapper>
-                </FlexWrapper>
+                <ContainerCentre>
+                    <GreyH3>{sanityFooter.donateTitle.ja}</GreyH3>
+                    <FlexWrapper>
+                        <StyledImg src={readyFor} alt='Ready forのロゴ' />
+                        <ColumnWrapper>
+                            <p>
+                                <BlockContent blocks={sanityFooter._rawDonateBody.ja} serializers={serializers} />
+                            </p>
+                            <StyledAnchor href='https://readyfor.jp/projects/talkingmats' target='_blank'>
+                                <DonationButton>
+                                    レディーフォーのサイトで詳しく読む
+                                </DonationButton>
+                            </StyledAnchor>
+                        </ColumnWrapper>
+                    </FlexWrapper>
+                </ContainerCentre>
             </DonationWrapper>
         </ColourDiv>
     )

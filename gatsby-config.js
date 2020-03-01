@@ -20,6 +20,7 @@ module.exports = {
       options: {
         projectId: "3xourkaf",
         dataset: "production",
+        overlayDrafts: true,
       },
     },
     {

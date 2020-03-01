@@ -31,7 +31,7 @@ const TalkingMats = () => {
             <ContainerCentre>
                 <GreyH3>{sanityTalkingMats.subTitle.ja}</GreyH3>
                 <br />
-                <BlockContent blocks={sanityTalkingMats._rawBody.ja} serializers={serializers} imageOptions={{ w: 320, h: 240, fit: 'max' }} />
+                <BlockContent blocks={sanityTalkingMats._rawBody.ja} serializers={serializers} />
             </ContainerCentre>
         </Layout>
     )

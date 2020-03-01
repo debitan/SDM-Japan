@@ -10,7 +10,7 @@ import ColumnWrapper from './shared/ColumnWrapper'
 
 const StyledImg = styled(Img)`
     margin: 2rem 0;
-    width: 75%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 `

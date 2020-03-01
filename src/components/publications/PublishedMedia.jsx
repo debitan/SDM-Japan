@@ -15,6 +15,7 @@ import { NarrowCoverImage, WideCoverImage } from '../shared/Images'
 
 const PublicationsContainer = styled(ContainerCentre)`
     border-bottom: 1px solid #979797;
+    max-width: 1000px;
 `
 
 const PublicationWrapper = styled(ColumnWrapper)`

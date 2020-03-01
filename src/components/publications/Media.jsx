@@ -36,6 +36,10 @@ const Date = styled('p')`
     font-weight: 600;
 `
 
+const MediaContainer = styled(ContainerCentre)`
+    max-width: 1000px;
+`
+
 const Media = () => {
     const { sanityPublications } = useStaticQuery(graphql`
         query MediaQuery {
@@ -113,7 +117,7 @@ const Media = () => {
     })
 
     return (
-        <ContainerCentre>
+        <MediaContainer>
             <GreyH3>{sanityPublications.mediaTitle.ja}</GreyH3>
             {formattedMedia.map(publication =>
                 publication.link ?
@@ -174,7 +178,7 @@ const Media = () => {
                         </ContentWrapper>
                     </PublicationWrapper>
             )}
-        </ContainerCentre>
+        </MediaContainer>
     )
 }
 
