@@ -1,10 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import moment from "moment"
 
 import ColumnWrapper from "../shared/ColumnWrapper"
 import StyledAnchor from "../shared/StyledAnchor"
+import ContainerCentre from "../shared/ContainerCentre"
+import GreyH3 from "../shared/GreyH3"
+import Link from "../shared/Link"
 
 const Wrapper = styled(ColumnWrapper)`
   align-items: center;
@@ -45,66 +48,56 @@ const Metadata = styled("span")`
   margin: 0.5rem 0;
 `
 
-const NewsArticles = () => {
-  const { sanityNews } = useStaticQuery(graphql`
-    query NewsArticlesQuery {
-      sanityNews {
-        articles {
-          _key
-          title {
-            ja
-          }
-          date
-          tag {
-            ja
-          }
-          headerImage {
-            image {
-              asset {
-                fluid {
-                  base64
-                  aspectRatio
-                  src
-                  srcSet
-                  srcWebp
-                  srcSetWebp
-                  sizes
-                }
-              }
-            }
-            caption {
-              ja
-            }
-          }
-        }
-      }
-    }
-  `)
+const BorderContainer = styled(ContainerCentre)`
+  border-top: ${props =>
+    props.border ? "0.4rem solid rgb(137, 234, 234)" : "none"};
+`
 
+const UnderlinedLink = styled(Link)`
+  text-decoration: underline;
+`
+
+const NewsArticles = ({ data, border, title, link }) => {
   const formatDate = date => {
     const dateArray = date.split("-")
     return `${dateArray[1]}月${dateArray[2]}日`
   }
 
-  return sanityNews.articles.map(article => (
-    <StyledAnchor href={`/news/${article._key}`}>
-      <Wrapper key={article._key}>
-        <LeftWrapper>
-          <NewsImage
-            fluid={article.headerImage.image.asset.fluid}
-            alt={article.headerImage.caption.ja}
-          />
-        </LeftWrapper>
-        <RightWrapper>
-          <Metadata>
-            {formatDate(article.date)}
-            <Tag>{article.tag.ja}</Tag>
-          </Metadata>
-          <p>{article.title.ja}</p>
-        </RightWrapper>
-      </Wrapper>
-    </StyledAnchor>
-  ))
+  const sortedData = data.articles.sort((a, b) => {
+    a = moment(a.date).format()
+    b = moment(b.date).format()
+    return a > b ? -1 : a < b ? 1 : 0
+  })
+
+  console.log(sortedData)
+
+  return (
+    <BorderContainer border={border}>
+      {title && <GreyH3>ニュース</GreyH3>}
+      {sortedData.map(article => (
+        <StyledAnchor href={`/news/${article._key}`}>
+          <Wrapper key={article._key}>
+            <LeftWrapper>
+              <NewsImage
+                fluid={article.headerImage.image.asset.fluid}
+                alt={article.headerImage.caption.ja}
+              />
+            </LeftWrapper>
+            <RightWrapper>
+              <Metadata>
+                {formatDate(article.date)}
+                <Tag>{article.tag.ja}</Tag>
+              </Metadata>
+              <p>{article.title.ja}</p>
+            </RightWrapper>
+          </Wrapper>
+        </StyledAnchor>
+      ))}
+      <ColumnWrapper>
+        {link && <UnderlinedLink href="/news">ニュース一覧</UnderlinedLink>}
+      </ColumnWrapper>
+    </BorderContainer>
+  )
 }
 
 export default NewsArticles
