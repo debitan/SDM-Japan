@@ -43,6 +43,7 @@ const News = () => {
       }
     }
   `)
+
   return (
     <Layout>
       <SEO title="ニュース" />
@@ -50,7 +51,12 @@ const News = () => {
       <ContainerCentre>
         <GreyH3>ニュース一覧</GreyH3>
       </ContainerCentre>
-      <NewsArticles data={sanityNews} />
+      <NewsArticles
+        data={sanityNews}
+        border={false}
+        title={false}
+        link={false}
+      />
     </Layout>
   )
 }

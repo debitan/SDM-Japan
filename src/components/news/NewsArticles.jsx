@@ -57,7 +57,7 @@ const UnderlinedLink = styled(Link)`
   text-decoration: underline;
 `
 
-const NewsArticles = ({ data, border, title, link }) => {
+const NewsArticles = ({ data, border, title, link, limit }) => {
   const formatDate = date => {
     const dateArray = date.split("-")
     return `${dateArray[1]}月${dateArray[2]}日`
@@ -69,12 +69,12 @@ const NewsArticles = ({ data, border, title, link }) => {
     return a > b ? -1 : a < b ? 1 : 0
   })
 
-  console.log(sortedData)
+  const slicedData = limit ? sortedData.slice(0, 2) : sortedData
 
   return (
     <BorderContainer border={border}>
       {title && <GreyH3>ニュース</GreyH3>}
-      {sortedData.map(article => (
+      {slicedData.map(article => (
         <StyledAnchor href={`/news/${article._key}`}>
           <Wrapper key={article._key}>
             <LeftWrapper>
