@@ -21,6 +21,8 @@ module.exports = {
         projectId: "3xourkaf",
         dataset: "production",
         overlayDrafts: true,
+        watchMode: true,
+        token: process.env.MY_SANITY_TOKEN,
       },
     },
     {
