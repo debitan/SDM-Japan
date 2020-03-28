@@ -57,8 +57,8 @@ const StyledLink = styled(StyledAnchor)`
     props.location === props.href ? "2px solid black" : "none"};
   font-size: 14px;
   :hover {
-        opacity: 60%;
-    }
+    opacity: 60%;
+  }
 `
 
 const BoldStyledLink = styled(StyledLink)`
@@ -88,7 +88,10 @@ function Footer() {
                   </FlexColumn1>
                   <FlexColumn2>
                     <LinkSection>私たちについて</LinkSection>
-                    <StyledLink href="/who-we-are/" location={location.pathname}>
+                    <StyledLink
+                      href="/who-we-are/"
+                      location={location.pathname}
+                    >
                       私たちについて
                     </StyledLink>
                     <StyledLink href="/team/" location={location.pathname}>
@@ -97,22 +100,34 @@ function Footer() {
                     <StyledLink href="/reports/" location={location.pathname}>
                       活動報告書
                     </StyledLink>
-                    <StyledLink href="/publications/" location={location.pathname}>
+                    <StyledLink
+                      href="/publications/"
+                      location={location.pathname}
+                    >
                       メディア
                     </StyledLink>
                   </FlexColumn2>
                   <FlexColumn3>
                     <LinkSection>私たちの活動</LinkSection>
-                    <StyledLink href="/what-we-do/" location={location.pathname}>
+                    <StyledLink
+                      href="/what-we-do/"
+                      location={location.pathname}
+                    >
                       意思決定支援実践のための総合プログラム開発
                     </StyledLink>
                     <StyledLink href="/workshops/" location={location.pathname}>
                       研修・ワークショップ
                     </StyledLink>
-                    <StyledLink href="/talking-mats/" location={location.pathname}>
+                    <StyledLink
+                      href="/talking-mats/"
+                      location={location.pathname}
+                    >
                       トーキングマット
                     </StyledLink>
-                    <StyledLink href="/collaboration/" location={location.pathname}>
+                    <StyledLink
+                      href="/collaboration/"
+                      location={location.pathname}
+                    >
                       他団体への協賛
                     </StyledLink>
                   </FlexColumn3>
@@ -120,13 +135,19 @@ function Footer() {
                 <RightSide>
                   <FlexColumn1>
                     <LinkSection>あなたにできること</LinkSection>
-                    <StyledLink href="/request-a-speaker/" location={location.pathname}>
+                    <StyledLink
+                      href="/request-a-speaker/"
+                      location={location.pathname}
+                    >
                       講師を依頼する
                     </StyledLink>
                     <StyledLink href="/events/" location={location.pathname}>
                       イベント参加
                     </StyledLink>
-                    <StyledLink href="/become-a-member/" location={location.pathname}>
+                    <StyledLink
+                      href="/become-a-member/"
+                      location={location.pathname}
+                    >
                       会員になる
                     </StyledLink>
                     <StyledLink href="/register/" location={location.pathname}>
@@ -134,10 +155,17 @@ function Footer() {
                     </StyledLink>
                   </FlexColumn1>
                   <FlexColumn2>
-                    <BoldStyledLink href="/news/" location={location.pathname}>ニュース</BoldStyledLink>
+                    <BoldStyledLink href="/news/" location={location.pathname}>
+                      ニュース
+                    </BoldStyledLink>
                   </FlexColumn2>
                   <FlexColumn3>
-                    <BoldStyledLink href="/contact/" location={location.pathname}>問い合わせ</BoldStyledLink>
+                    <BoldStyledLink
+                      href="/contact/"
+                      location={location.pathname}
+                    >
+                      問い合わせ
+                    </BoldStyledLink>
                   </FlexColumn3>
                 </RightSide>
               </Grid>

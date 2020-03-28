@@ -7,15 +7,11 @@ const ColourDiv = styled("div")`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  max-width: 1900px;
+  max-width: 2560px;
   margin-left: auto;
   margin-right: auto;
   height: 230px;
-  margin-bottom: -1rem;
-
-  @media (min-width: 992px) {
-    margin-bottom: 5.5rem;
-  }
+  background-color: #fff691;
 `
 
 const Title = styled("h5")`
@@ -23,6 +19,7 @@ const Title = styled("h5")`
 `
 
 const StyledImg = styled("img")`
+  height: 230px;
   @media (min-width: 992px) {
     min-width: 1900px;
     min-height: 10rem;
