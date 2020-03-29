@@ -15,6 +15,13 @@ const StyledImg = styled(Img)`
   margin-right: auto;
 `
 
+const Svg = styled("img")`
+  margin: 2rem 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+`
+
 const StyledYouTube = styled(YouTube)`
   margin: 2rem 0;
   max-width: 100%;
@@ -56,6 +63,11 @@ const H6 = styled("h6")`
   width: 100%;
 `
 
+const sanityConfig = {
+  projectId: "3xourkaf",
+  dataset: "production",
+}
+
 const serializers = {
   types: {
     youtube: ({ node }) => {
@@ -68,11 +80,6 @@ const serializers = {
       )
     },
     captionImage: ({ node }) => {
-      const sanityConfig = {
-        projectId: "3xourkaf",
-        dataset: "production",
-      }
-
       return (
         <StyledImg
           fluid={getFluidGatsbyImage(
@@ -80,6 +87,20 @@ const serializers = {
             { maxWidth: 1024 },
             sanityConfig
           )}
+          alt={node.caption.ja}
+        />
+      )
+    },
+    svg: ({ node }) => {
+      return (
+        <Svg
+          src={
+            getFluidGatsbyImage(
+              node.svg.asset,
+              { maxWidth: 1024 },
+              sanityConfig
+            ).src
+          }
           alt={node.caption.ja}
         />
       )
