@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import Img from "gatsby-image"
 import moment from "moment"
 
 import ColumnWrapper from "../shared/ColumnWrapper"
@@ -8,6 +7,7 @@ import StyledAnchor from "../shared/StyledAnchor"
 import ContainerCentre from "../shared/ContainerCentre"
 import GreyH3 from "../shared/GreyH3"
 import Link from "../shared/Link"
+import { NarrowCoverImage, WideCoverImage } from "../shared/Images"
 
 const Wrapper = styled(ColumnWrapper)`
   align-items: center;
@@ -18,14 +18,9 @@ const Wrapper = styled(ColumnWrapper)`
   }
 `
 
-const LeftWrapper = styled("div")`
+const LeftWrapper = styled(ColumnWrapper)`
   width: 40rem;
   max-width: 100%;
-  padding: 2rem 0;
-`
-
-const NewsImage = styled(Img)`
-  width: 100%;
 `
 
 const RightWrapper = styled(ColumnWrapper)`
@@ -69,7 +64,7 @@ const NewsArticles = ({ data, border, title, link, limit }) => {
     return a > b ? -1 : a < b ? 1 : 0
   })
 
-  const slicedData = limit ? sortedData.slice(0, 2) : sortedData
+  const slicedData = limit ? sortedData.slice(0, limit) : sortedData
 
   return (
     <BorderContainer border={border}>
@@ -78,10 +73,18 @@ const NewsArticles = ({ data, border, title, link, limit }) => {
         <StyledAnchor href={`/news/${article._key}`}>
           <Wrapper key={article._key}>
             <LeftWrapper>
-              <NewsImage
-                fluid={article.headerImage.image.asset.fluid}
-                alt={article.headerImage.caption.ja}
-              />
+              {article.headerImage.image.asset._rawMetadata.dimensions
+                .aspectRatio > 1 ? (
+                <WideCoverImage
+                  fluid={article.headerImage.image.asset.fluid}
+                  alt={article.headerImage.caption.ja}
+                />
+              ) : (
+                <NarrowCoverImage
+                  fluid={article.headerImage.image.asset.fluid}
+                  alt={article.headerImage.caption.ja}
+                />
+              )}
             </LeftWrapper>
             <RightWrapper>
               <Metadata>

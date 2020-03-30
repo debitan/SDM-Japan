@@ -22,6 +22,7 @@ const News = () => {
           headerImage {
             image {
               asset {
+                _rawMetadata
                 fluid {
                   base64
                   aspectRatio

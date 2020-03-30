@@ -26,6 +26,7 @@ const IndexPage = () => {
           headerImage {
             image {
               asset {
+                _rawMetadata
                 fluid {
                   base64
                   aspectRatio
@@ -56,7 +57,7 @@ const IndexPage = () => {
         border={true}
         title={true}
         link={true}
-        limit={true}
+        limit={3}
       />
       <SupportedDecisionMaking />
       <About />
