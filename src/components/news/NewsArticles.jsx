@@ -60,7 +60,7 @@ const UnderlinedLink = styled(Link)`
 const NewsArticles = ({ data, border, title, link, limit }) => {
   const formatDate = date => {
     const dateArray = date.split("-")
-    return `${dateArray[1]}月${dateArray[2]}日`
+    return `${dateArray[0]}年${dateArray[1]}月${dateArray[2]}日`
   }
 
   const sortedData = data.articles.sort((a, b) => {
@@ -86,7 +86,7 @@ const NewsArticles = ({ data, border, title, link, limit }) => {
             <RightWrapper>
               <Metadata>
                 {formatDate(article.date)}
-                <Tag>{article.tag.ja}</Tag>
+                {article.tag ? <Tag>{article.tag.ja}</Tag> : null}
               </Metadata>
               <p>{article.title.ja}</p>
             </RightWrapper>
