@@ -15,9 +15,6 @@ const Video = () => {
         title {
           ja
         }
-        subTitle {
-          ja
-        }
         _rawBody
       }
     }

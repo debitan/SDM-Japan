@@ -156,6 +156,9 @@ function Footer() {
                     >
                       会員になる
                     </StyledLink>
+                    <StyledLink href="/video/" location={location.pathname}>
+                      動画で学ぶ意思決定
+                    </StyledLink>
                     <StyledLink href="/register/" location={location.pathname}>
                       メーリングリスト登録・SNSフォローする
                     </StyledLink>

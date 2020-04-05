@@ -15,9 +15,6 @@ const PFT = () => {
         title {
           ja
         }
-        subTitle {
-          ja
-        }
         _rawBody
       }
     }

@@ -237,6 +237,9 @@ function NavBar() {
                       >
                         会員になる
                       </DropdownItem>
+                      <DropdownItem href="/video/" location={location.pathname}>
+                        動画で学ぶ意思決定
+                      </DropdownItem>
                       <DropdownItem
                         href="/register/"
                         location={location.pathname}
