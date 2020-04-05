@@ -115,6 +115,12 @@ function Footer() {
                     >
                       意思決定支援実践のための総合プログラム開発
                     </StyledLink>
+                    <StyledLink
+                      href="/practical-facilitation-training/"
+                      location={location.pathname}
+                    >
+                      実践ファシリテーション研修（PFT)
+                    </StyledLink>
                     <StyledLink href="/workshops/" location={location.pathname}>
                       研修・ワークショップ
                     </StyledLink>

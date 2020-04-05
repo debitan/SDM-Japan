@@ -6,13 +6,12 @@ import SEO from "../components/SEO"
 import Layout from "../components/Layout"
 import YellowTitle from "../components/YellowTitle"
 import ContainerCentre from "../components/shared/ContainerCentre"
-import GreyH3 from "../components/shared/GreyH3"
-import serializers from "../components/serializers"
+import serializersGrey from "../components/serializersGrey"
 
-const TalkingMats = () => {
-  const { sanityTalkingMats } = useStaticQuery(graphql`
-    query TalkingMatsQuery {
-      sanityTalkingMats {
+const PFT = () => {
+  const { sanityPft } = useStaticQuery(graphql`
+    query PFTsQuery {
+      sanityPft {
         title {
           ja
         }
@@ -26,18 +25,16 @@ const TalkingMats = () => {
 
   return (
     <Layout>
-      <SEO title={sanityTalkingMats.title.ja} />
-      <YellowTitle title={sanityTalkingMats.title.ja} />
+      <SEO title={sanityPft.title.ja} />
+      <YellowTitle title={sanityPft.title.ja} />
       <ContainerCentre>
-        <GreyH3>{sanityTalkingMats.subTitle.ja}</GreyH3>
-        <br />
         <BlockContent
-          blocks={sanityTalkingMats._rawBody.ja}
-          serializers={serializers}
+          blocks={sanityPft._rawBody.ja}
+          serializers={serializersGrey}
         />
       </ContainerCentre>
     </Layout>
   )
 }
 
-export default TalkingMats
+export default PFT
