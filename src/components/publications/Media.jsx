@@ -5,26 +5,18 @@ import BlockContent from "@sanity/block-content-to-react"
 import moment from "moment"
 
 import serializers from "../serializers"
-import ContainerCentre from "../shared/ContainerCentre"
 import GreyH3 from "../shared/GreyH3"
 import ColumnWrapper from "../shared/ColumnWrapper"
 import RowWrapper from "../shared/RowWrapper"
 import BlueText from "../shared/BlueText"
 import Link from "../shared/Link"
 import { NarrowCoverImage, WideCoverImage } from "../shared/Images"
+import MediaContainer from "../shared/MediaContainer"
+import MediaWrapper from "../shared/MediaWrapper"
 
 const PublicationWrapper = styled(ColumnWrapper)`
   margin: 2rem 0;
   align-items: flex-start;
-`
-
-const ContentWrapper = styled(ColumnWrapper)`
-  width: 100%;
-
-  @media (min-width: 992px) {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
 `
 
 const Description = styled("p")`
@@ -34,10 +26,6 @@ const Description = styled("p")`
 const Date = styled("p")`
   text-align: end;
   font-weight: 600;
-`
-
-const MediaContainer = styled(ContainerCentre)`
-  max-width: 1000px;
 `
 
 const Media = () => {
@@ -130,7 +118,7 @@ const Media = () => {
                 {publication.title.ja}
               </BlueText>
             </Link>
-            <ContentWrapper>
+            <MediaWrapper>
               {publication.image.image.asset._rawMetadata.dimensions
                 .aspectRatio > 1 ? (
                 <Link href={publication.link} target="_blank">
@@ -156,7 +144,7 @@ const Media = () => {
                   />
                 </Description>
               </div>
-            </ContentWrapper>
+            </MediaWrapper>
           </PublicationWrapper>
         ) : (
           <PublicationWrapper key={publication.title.ja}>
@@ -167,7 +155,7 @@ const Media = () => {
                 {publication.title.ja}
               </BlueText>
             </Link>
-            <ContentWrapper>
+            <MediaWrapper>
               <RowWrapper>
                 {publication.image.image.asset._rawMetadata.dimensions
                   .aspectRatio > 1 ? (
@@ -195,7 +183,7 @@ const Media = () => {
                   />
                 </Description>
               </div>
-            </ContentWrapper>
+            </MediaWrapper>
           </PublicationWrapper>
         )
       )}
