@@ -33,6 +33,7 @@ const OverlayContainer = styled("div")`
   position: absolute;
   display: block;
   max-width: 1900px;
+  padding: 0 2rem;
 `
 
 const YellowTitle = ({ title }) => {
