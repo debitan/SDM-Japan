@@ -85,6 +85,30 @@ const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
 
   return (
     <BorderContainer border={border}>
+      {!link && (
+        <ButtonWrapper>
+          {offset !== 0 && (
+            <WhiteButton
+              onClick={() => {
+                scrollTo("#top")
+                setOffset(offset - 5)
+              }}
+            >
+              前のページへ
+            </WhiteButton>
+          )}
+          {total > max && (
+            <BlueButton
+              onClick={() => {
+                scrollTo("#top")
+                setOffset(offset + 5)
+              }}
+            >
+              次のページへ
+            </BlueButton>
+          )}
+        </ButtonWrapper>
+      )}
       {title && <GreyH3>ニュース</GreyH3>}
       {slicedData.map(article => (
         <StyledAnchor href={`/news/${article._key}`}>
@@ -113,28 +137,30 @@ const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
           </Wrapper>
         </StyledAnchor>
       ))}
-      <ButtonWrapper>
-        {offset !== 0 && (
-          <WhiteButton
-            onClick={() => {
-              scrollTo("#top")
-              setOffset(offset - 5)
-            }}
-          >
-            前のページへ
-          </WhiteButton>
-        )}
-        {total > max && (
-          <BlueButton
-            onClick={() => {
-              scrollTo("#top")
-              setOffset(offset + 5)
-            }}
-          >
-            次のページへ
-          </BlueButton>
-        )}
-      </ButtonWrapper>
+      {!link && (
+        <ButtonWrapper>
+          {offset !== 0 && (
+            <WhiteButton
+              onClick={() => {
+                scrollTo("#top")
+                setOffset(offset - 5)
+              }}
+            >
+              前のページへ
+            </WhiteButton>
+          )}
+          {total > max && (
+            <BlueButton
+              onClick={() => {
+                scrollTo("#top")
+                setOffset(offset + 5)
+              }}
+            >
+              次のページへ
+            </BlueButton>
+          )}
+        </ButtonWrapper>
+      )}
       <ColumnWrapper>
         {link && <UnderlinedLink href="/news">ニュース一覧</UnderlinedLink>}
       </ColumnWrapper>
