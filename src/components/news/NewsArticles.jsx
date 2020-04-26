@@ -84,13 +84,12 @@ const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
   const slicedData = sortedData.slice(offset, max)
 
   return (
-    <BorderContainer border={border}>
+    <BorderContainer border={border} id="#top">
       {!link && (
         <ButtonWrapper>
           {offset !== 0 && (
             <WhiteButton
               onClick={() => {
-                scrollTo("#top")
                 setOffset(offset - 5)
               }}
             >
@@ -100,7 +99,6 @@ const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
           {total > max && (
             <BlueButton
               onClick={() => {
-                scrollTo("#top")
                 setOffset(offset + 5)
               }}
             >
