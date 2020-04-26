@@ -38,7 +38,7 @@ const OverlayContainer = styled("div")`
 
 const YellowTitle = ({ title }) => {
   return (
-    <ColourDiv>
+    <ColourDiv id="top">
       <StyledImg src={PageHeader} />
       <OverlayContainer>
         <Title>{title}</Title>

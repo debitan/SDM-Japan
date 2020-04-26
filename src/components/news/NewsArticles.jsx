@@ -84,7 +84,7 @@ const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
   const slicedData = sortedData.slice(offset, max)
 
   return (
-    <BorderContainer id="top" border={border}>
+    <BorderContainer border={border}>
       {title && <GreyH3>ニュース</GreyH3>}
       {slicedData.map(article => (
         <StyledAnchor href={`/news/${article._key}`}>
@@ -116,20 +116,20 @@ const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
       <ButtonWrapper>
         {offset !== 0 && (
           <WhiteButton
-            onClick={
-              () => setOffset(offset - 5)
-              // ,scrollTo("#top")
-            }
+            onClick={() => {
+              scrollTo("#top")
+              setOffset(offset - 5)
+            }}
           >
             前のページへ
           </WhiteButton>
         )}
         {total > max && (
           <BlueButton
-            onClick={
-              () => setOffset(offset + 5)
-              // ,scrollTo("#top")
-            }
+            onClick={() => {
+              scrollTo("#top")
+              setOffset(offset + 5)
+            }}
           >
             次のページへ
           </BlueButton>
