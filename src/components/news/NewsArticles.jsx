@@ -59,9 +59,13 @@ const ButtonWrapper = styled("div")`
   min-width: 100%;
   padding: 2rem;
   display: grid;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
   grid-gap: 2rem;
   justify-items: center;
+
+  @media (min-width: 768px) {
+    grid-auto-flow: column;
+  }
 `
 
 const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
