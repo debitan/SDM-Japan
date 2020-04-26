@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import moment from "moment"
 
@@ -8,6 +8,9 @@ import ContainerCentre from "../shared/ContainerCentre"
 import GreyH3 from "../shared/GreyH3"
 import Link from "../shared/Link"
 import { NarrowCoverImage, WideCoverImage } from "../shared/Images"
+import BlueButton from "../shared/BlueButton"
+import WhiteButton from "../shared/WhiteButton"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 const Wrapper = styled(ColumnWrapper)`
   align-items: center;
@@ -52,7 +55,21 @@ const UnderlinedLink = styled(Link)`
   text-decoration: underline;
 `
 
-const NewsArticles = ({ data, border, title, link, limit }) => {
+const ButtonWrapper = styled("div")`
+  min-width: 100%;
+  padding: 2rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 2rem;
+  justify-items: center;
+`
+
+const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
+  const [offset, setOffset] = useState(0)
+
+  const total = data.articles.length
+  const max = offset + limit
+
   const formatDate = date => {
     const dateArray = date.split("-")
     return `${dateArray[0]}年${dateArray[1]}月${dateArray[2]}日`
@@ -64,10 +81,10 @@ const NewsArticles = ({ data, border, title, link, limit }) => {
     return a > b ? -1 : a < b ? 1 : 0
   })
 
-  const slicedData = limit ? sortedData.slice(0, limit) : sortedData
+  const slicedData = sortedData.slice(offset, max)
 
   return (
-    <BorderContainer border={border}>
+    <BorderContainer id="top" border={border}>
       {title && <GreyH3>ニュース</GreyH3>}
       {slicedData.map(article => (
         <StyledAnchor href={`/news/${article._key}`}>
@@ -96,6 +113,28 @@ const NewsArticles = ({ data, border, title, link, limit }) => {
           </Wrapper>
         </StyledAnchor>
       ))}
+      <ButtonWrapper>
+        {offset !== 0 && (
+          <WhiteButton
+            onClick={
+              () => setOffset(offset - 5)
+              // ,scrollTo("#top")
+            }
+          >
+            前のページへ
+          </WhiteButton>
+        )}
+        {total > max && (
+          <BlueButton
+            onClick={
+              () => setOffset(offset + 5)
+              // ,scrollTo("#top")
+            }
+          >
+            次のページへ
+          </BlueButton>
+        )}
+      </ButtonWrapper>
       <ColumnWrapper>
         {link && <UnderlinedLink href="/news">ニュース一覧</UnderlinedLink>}
       </ColumnWrapper>
