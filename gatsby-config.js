@@ -7,7 +7,7 @@ module.exports = {
     title: `SDM-Japan`,
     description: `SDM-Japanは、障害のあるなしにかかわらず、誰もが自信と誇りをもって、自分の思いを述べ、心からの希望に基づいて意思決定することができる社会を目指しています。`,
     author: `@ThisisDMatthews`,
-    url: "https://sdm-japan.net",
+    url: "https://sdm-japan.com",
     image: "/images/icon.png",
   },
   plugins: [
