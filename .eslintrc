@@ -1,0 +1,3 @@
+{
+  "extends": ["kentcdodds", "kentcdodds/jsx-a11y"]
+}
