@@ -1,6 +1,6 @@
-import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
-import Helmet from 'react-helmet'
+import React from "react"
+import styled, { createGlobalStyle } from "styled-components"
+import Helmet from "react-helmet"
 
 import SEO from "./SEO"
 import NavBar from "./NavBar"
@@ -8,7 +8,7 @@ import Footer from "./Footer"
 import MailingList from "./MailingList"
 import Donation from "./Donation"
 
-const FontWrapper = styled('body')`
+const FontWrapper = styled("body")`
   font-family: "M PLUS Rounded 1c";
   overflow-x: hidden;
 `
