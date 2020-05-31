@@ -196,7 +196,7 @@ const Register = () => {
             )}
           {sanityContact.twitterUrl &&
             sanitySns.twitterImage &&
-            sanitySns.twitterLink(
+            sanitySns.twitterLink && (
               <StyledColumn>
                 <StyledLink href={sanityContact.twitterUrl}>
                   <StyledImg
