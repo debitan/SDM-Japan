@@ -18,18 +18,26 @@ const BottomBorderContainer = styled(ContainerCentre)`
 `
 
 const Grid = styled("section")`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
+  > div {
+    margin: 1rem 0;
+  }
+
+  > div:nth-child(even) {
+    margin-left: 1rem;
   }
 `
 
 const StyledColumn = styled(ColumnWrapper)`
-  margin: 1rem 0;
-  max-width: 100%;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 48%;
+  }
 `
 
 const StyledImg = styled(Img)`
@@ -56,6 +64,7 @@ const Register = () => {
       sanityContact {
         facebookUrl
         instagramUrl
+        twitterUrl
       }
       sanitySns {
         title {
@@ -99,12 +108,35 @@ const Register = () => {
             }
           }
         }
+        twitterImage {
+          caption {
+            ja
+          }
+          image {
+            asset {
+              fluid {
+                base64
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+              }
+            }
+          }
+        }
         facebookLink {
           asset {
             url
           }
         }
         instagramLink {
+          asset {
+            url
+          }
+        }
+        twitterLink {
           asset {
             url
           }
@@ -132,28 +164,51 @@ const Register = () => {
           serializers={snsSerializers}
         />
         <Grid>
-          <StyledColumn>
-            <StyledLink href={sanityContact.facebookUrl}>
-              <StyledImg
-                fluid={sanitySns.facebookImage.image.asset.fluid}
-                alt={sanitySns.facebookImage.caption.ja}
-              />
-            </StyledLink>
-            <StyledLink href={sanityContact.facebookUrl}>
-              <StyledSvg src={sanitySns.facebookLink.asset.url} />
-            </StyledLink>
-          </StyledColumn>
-          <StyledColumn>
-            <StyledLink href={sanityContact.instagramUrl}>
-              <StyledImg
-                fluid={sanitySns.instagramImage.image.asset.fluid}
-                alt={sanitySns.instagramImage.caption.ja}
-              />
-            </StyledLink>
-            <StyledLink href={sanityContact.instagramUrl}>
-              <StyledSvg src={sanitySns.instagramLink.asset.url} />
-            </StyledLink>
-          </StyledColumn>
+          {sanityContact.facebookUrl &&
+            sanitySns.facebookImage &&
+            sanitySns.facebookLink && (
+              <StyledColumn>
+                <StyledLink href={sanityContact.facebookUrl}>
+                  <StyledImg
+                    fluid={sanitySns.facebookImage.image.asset.fluid}
+                    alt={sanitySns.facebookImage.caption.ja}
+                  />
+                </StyledLink>
+                <StyledLink href={sanityContact.facebookUrl}>
+                  <StyledSvg src={sanitySns.facebookLink.asset.url} />
+                </StyledLink>
+              </StyledColumn>
+            )}
+          {sanityContact.instagramUrl &&
+            sanitySns.instagramImage &&
+            sanitySns.instagramLink && (
+              <StyledColumn>
+                <StyledLink href={sanityContact.instagramUrl}>
+                  <StyledImg
+                    fluid={sanitySns.instagramImage.image.asset.fluid}
+                    alt={sanitySns.instagramImage.caption.ja}
+                  />
+                </StyledLink>
+                <StyledLink href={sanityContact.instagramUrl}>
+                  <StyledSvg src={sanitySns.instagramLink.asset.url} />
+                </StyledLink>
+              </StyledColumn>
+            )}
+          {sanityContact.twitterUrl &&
+            sanitySns.twitterImage &&
+            sanitySns.twitterLink(
+              <StyledColumn>
+                <StyledLink href={sanityContact.twitterUrl}>
+                  <StyledImg
+                    fluid={sanitySns.twitterImage.image.asset.fluid}
+                    alt={sanitySns.twitterImage.caption.ja}
+                  />
+                </StyledLink>
+                <StyledLink href={sanityContact.twitterUrl}>
+                  <StyledSvg src={sanitySns.twitterLink.asset.url} />
+                </StyledLink>
+              </StyledColumn>
+            )}
         </Grid>
       </ContainerCentre>
     </Layout>
