@@ -4,9 +4,6 @@ import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
 
-import facebook from "../images/facebook.svg"
-import instagram from "../images/instagram.svg"
-import twitter from "../images/twitter.svg"
 import serializers from "../components/serializers"
 import SEO from "../components/SEO"
 import Layout from "../components/Layout"
@@ -58,6 +55,36 @@ const ContactPage = () => {
         instagramUrl
         facebookUrl
         twitterUrl
+        instagramLogo {
+          caption {
+            ja
+          }
+          image {
+            asset {
+              url
+            }
+          }
+        }
+        facebookLogo {
+          caption {
+            ja
+          }
+          image {
+            asset {
+              url
+            }
+          }
+        }
+        twitterLogo {
+          caption {
+            ja
+          }
+          image {
+            asset {
+              url
+            }
+          }
+        }
       }
       staticMap {
         mapUrl
@@ -92,19 +119,28 @@ const ContactPage = () => {
           <ColumnWrapper>
             <BlueText>{sanityContact.follow.ja}</BlueText>
             <RowWrapper>
-              {sanityContact.instagramUrl && (
+              {sanityContact.instagramUrl && sanityContact.instagramLogo && (
                 <Link href={sanityContact.instagramUrl} target="_blank">
-                  <Logo src={instagram} alt="インストグラムのロゴ" />
+                  <Logo
+                    src={sanityContact.instagramLogo.image.asset.url}
+                    alt={sanityContact.instagramLogo.caption.ja}
+                  />
                 </Link>
               )}
-              {sanityContact.facebookUrl && (
+              {sanityContact.facebookUrl && sanityContact.facebookLogo && (
                 <Link href={sanityContact.facebookUrl} target="_blank">
-                  <Logo src={facebook} alt="フェイスブックのロゴ" />
+                  <Logo
+                    src={sanityContact.facebookLogo.image.asset.url}
+                    alt={sanityContact.facebookLogo.caption.ja}
+                  />
                 </Link>
               )}
-              {sanityContact.twitterUrl && (
+              {sanityContact.twitterUrl && sanityContact.twitterLogo && (
                 <Link href={sanityContact.twitterUrl} target="_blank">
-                  <Logo src={twitter} alt="ツィッターのロゴ" />
+                  <Logo
+                    src={sanityContact.twitterLogo.image.asset.url}
+                    alt={sanityContact.twitterLogo.caption.ja}
+                  />
                 </Link>
               )}
             </RowWrapper>
