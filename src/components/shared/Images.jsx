@@ -2,19 +2,12 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 
 const NarrowCoverImage = styled(Img)`
-  width: 13rem;
-  margin: 2rem 0;
+  width: 100%;
 `
 
 const WideCoverImage = styled(Img)`
-  min-height: 13rem;
-  min-width: 80vw;
-  margin: 2rem 0;
-
-  @media (min-width: 992px) {
-    min-width: 100%;
-    max-width: 20rem;
-  }
+  width: 20rem;
+  height: 13rem;
 `
 
 export { NarrowCoverImage, WideCoverImage }
