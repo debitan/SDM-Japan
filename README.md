@@ -6,7 +6,7 @@
 </p>
 <br />
 
-This is the code repository for the [SDM-Japan](https://www.sdm-japan.net/) website. SDM-Japan is a Japanese charity focused on Supported Decision Making.
+This is the code repository for the [SDM-Japan](https://sdm-japan.net/) website. SDM-Japan is a Japanese charity focused on Supported Decision Making.
 
 This site is currently only in Japanese, but there are plans for an English version of the site.
 
