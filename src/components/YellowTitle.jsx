@@ -20,6 +20,7 @@ const ColourDiv = styled("div")`
 
 const Title = styled("h5")`
   padding-top: 6rem;
+  text-align: center;
 `
 
 const StyledImg = styled("img")`
