@@ -5,7 +5,6 @@ import BlockContent from "@sanity/block-content-to-react"
 import SEO from "../components/SEO"
 import Layout from "../components/Layout"
 import YellowTitle from "../components/YellowTitle"
-import ComingSoon from "../components/ComingSoon"
 import serializers from "../components/serializers"
 import ContainerCentre from "../components/shared/ContainerCentre"
 
@@ -30,16 +29,12 @@ const WhatWeDo = () => {
           </span>
         }
       />
-      {sanityWhatWeDo?._rawBody?.ja ? (
-        <ContainerCentre>
-          <BlockContent
-            blocks={sanityWhatWeDo._rawBody.ja}
-            serializers={serializers}
-          />
-        </ContainerCentre>
-      ) : (
-        <ComingSoon />
-      )}
+      <ContainerCentre>
+        <BlockContent
+          blocks={sanityWhatWeDo._rawBody.ja}
+          serializers={serializers}
+        />
+      </ContainerCentre>
     </Layout>
   )
 }
