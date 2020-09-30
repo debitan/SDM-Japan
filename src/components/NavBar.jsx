@@ -126,8 +126,6 @@ function NavBar() {
   ]
 
   return (
-    // <MyContext.Consumer>
-    //     {context =>
     <Location>
       {({ location }) => {
         return (
@@ -274,8 +272,6 @@ function NavBar() {
         )
       }}
     </Location>
-    // }
-    // </MyContext.Consumer>
   )
 }
 
