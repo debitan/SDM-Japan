@@ -9,18 +9,11 @@ import YellowTitle from "../components/YellowTitle"
 import ContainerCentre from "../components/shared/ContainerCentre"
 import serializers from "../components/serializersGrey"
 
-const Border = styled("div")`
-  border-top: 0.5rem solid rgb(137, 234, 234);
-  width: 33%;
-  margin: 2rem 0 1rem 0;
-`
-
 const BecomeAMember = () => {
   const { sanityBecomeAMember } = useStaticQuery(graphql`
     query BecomeAMemberQuery {
       sanityBecomeAMember {
         _rawBody1
-        _rawBody2
       }
     }
   `)
@@ -34,11 +27,6 @@ const BecomeAMember = () => {
         <br />
         <BlockContent
           blocks={sanityBecomeAMember._rawBody1.ja}
-          serializers={serializers}
-        />
-        <Border />
-        <BlockContent
-          blocks={sanityBecomeAMember._rawBody2.ja}
           serializers={serializers}
         />
       </ContainerCentre>
