@@ -20,8 +20,8 @@ const BecomeAMember = () => {
 
   return (
     <Layout>
-      <SEO title="会員になる" />
-      <YellowTitle title="会員になる" />
+      <SEO title="賛助会員になる" />
+      <YellowTitle title="賛助会員になる" />
       <ContainerCentre>
         <br />
         <br />

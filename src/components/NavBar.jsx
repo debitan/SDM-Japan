@@ -235,7 +235,7 @@ function NavBar() {
                         href="/become-a-member/"
                         location={location.pathname}
                       >
-                        会員になる
+                        賛助会員になる
                       </DropdownItem>
                       <DropdownItem href="/video/" location={location.pathname}>
                         動画で学ぶ意思決定
