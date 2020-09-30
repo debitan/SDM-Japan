@@ -1,16 +1,37 @@
-import React from 'react'
+import React from "react"
+import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
+import BlockContent from "@sanity/block-content-to-react"
 
-import SEO from '../components/SEO'
-import Layout from '../components/Layout'
-import ComingSoon from '../components/ComingSoon'
+import SEO from "../components/SEO"
+import Layout from "../components/Layout"
+import YellowTitle from "../components/YellowTitle"
+import ContainerCentre from "../components/shared/ContainerCentre"
+import serializers from "../components/serializersGrey"
 
 const BecomeAMember = () => {
-    return (
-        <Layout>
-            <SEO title='What we do' />
-            <ComingSoon />
-        </Layout>
-    )
+  const { sanityBecomeAMember } = useStaticQuery(graphql`
+    query BecomeAMemberQuery {
+      sanityBecomeAMember {
+        _rawBody1
+      }
+    }
+  `)
+
+  return (
+    <Layout>
+      <SEO title="会員になる" />
+      <YellowTitle title="会員になる" />
+      <ContainerCentre>
+        <br />
+        <br />
+        <BlockContent
+          blocks={sanityBecomeAMember._rawBody1.ja}
+          serializers={serializers}
+        />
+      </ContainerCentre>
+    </Layout>
+  )
 }
 
 export default BecomeAMember
