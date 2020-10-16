@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
-const ContainerCentre = styled('section')`
+const ContainerCentre = styled("section")`
   width: 90vw;
   max-width: 768px;
   margin-left: auto;
   margin-right: auto;
-  padding: 3rem 0;
+  padding: 2rem 0;
 `
 
 export default ContainerCentre

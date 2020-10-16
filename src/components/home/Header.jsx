@@ -33,12 +33,18 @@ const TopDiv = styled("div")`
 `
 
 const GreenText = styled("div")`
-  margin: 2rem 0;
   color: #2cadad;
   max-width: 35rem;
-  h5 {
-    font-size: 1.1rem;
-    text-align: left;
+
+  h4 {
+    line-height: 0.5rem;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 1.5rem;
+    }
   }
 `
 
@@ -57,13 +63,28 @@ const StyledImg = styled(Img)`
   }
 `
 
+const Cartoon = styled(Img)`
+  width: 80%;
+
+  @media (min-width: 1280px) {
+    width: 50%;
+  }
+`
+
 const FoundationLogo = styled("img")`
   width: 10rem;
 `
 
 const InnerContainer = styled(Container)`
-  margin-left: auto;
-  margin-right: auto;
+  width: 100vw;
+
+  @media (min-width: 768px) {
+    width: 60vw;
+  }
+
+  @media (min-width: 1280px) {
+    width: 90vw;
+  }
 `
 
 const Wrapper = styled(ColumnWrapper)`
@@ -72,6 +93,12 @@ const Wrapper = styled(ColumnWrapper)`
 
   @media (min-width: 1280px) {
     flex-direction: row;
+  }
+`
+
+const GreenTextWrapper = styled(Wrapper)`
+  div:nth-child(even) {
+    margin-top: 2rem;
   }
 `
 
@@ -184,7 +211,7 @@ const Header = () => {
     <>
       <HeaderTopDiv>
         <InnerContainer>
-          <Wrapper>
+          <GreenTextWrapper>
             <StyledImg
               fluid={sanityHomePage.headerImage.image.asset.fluid}
               alt={sanityHomePage.headerImage.caption.ja}
@@ -196,13 +223,13 @@ const Header = () => {
                   serializers={serializers}
                 />
               </GreenText>
-              <StyledImg
+              <Cartoon
                 fluid={sanityHomePage.cartoonImage.image.asset.fluid}
                 alt={sanityHomePage.cartoonImage.caption.ja}
               />
               <CartoonText>{sanityHomePage.cartoonBody.ja}</CartoonText>
             </ColumnWrapper>
-          </Wrapper>
+          </GreenTextWrapper>
         </InnerContainer>
       </HeaderTopDiv>
       <TopDiv>

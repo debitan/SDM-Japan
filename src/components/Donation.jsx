@@ -17,7 +17,7 @@ const ColourDiv = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: 1rem 0;
   max-width: 2560px;
   margin-left: auto;
   margin-right: auto;

@@ -5,28 +5,24 @@ import BlockContent from "@sanity/block-content-to-react"
 import Img from "gatsby-image"
 
 import serializers from "./serializers"
-import Container from "./shared/Container"
 import ColumnWrapper from "./shared/ColumnWrapper"
 import GreyH3 from "./shared/GreyH3"
 import RowWrapper from "./shared/RowWrapper"
+import StyledAnchor from "./shared/StyledAnchor"
 
 const ColourDiv = styled("div")`
   background-color: #ccf6e1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: 1rem 0;
   max-width: 1900px;
   margin-left: auto;
   margin-right: auto;
 `
 
 const Wrapper = styled(ColumnWrapper)`
-  width: 42rem;
-  max-width: 100%;
-  margin: 2rem 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 2rem;
 `
 
 const Text = styled("p")`
@@ -35,7 +31,7 @@ const Text = styled("p")`
 
 const StyledImg = styled(Img)`
   width: 14rem;
-  margin-top: 2rem;
+  margin: auto;
 `
 
 const ActivitiesWrapper = styled(RowWrapper)`
@@ -48,17 +44,11 @@ const ActivityWrapper = styled(ColumnWrapper)`
   margin: 0 3rem;
 `
 
-const StyledAnchor = styled("a")`
+const UnderlinedText = styled("p")`
   margin-top: 0.5rem;
   text-decoration: underline;
   color: black;
-
-  :hover,
-  :active,
-  :visited,
-  :focus {
-    color: black;
-  }
+  text-align: center;
 `
 
 const OurActivities = () => {
@@ -95,19 +85,21 @@ const OurActivities = () => {
 
   return (
     <ColourDiv>
-      <Container>
-        <Wrapper>
-          <GreyH3>{sanityHomePage.activityTitle.ja}</GreyH3>
-        </Wrapper>
+      <Wrapper>
+        <GreyH3>{sanityHomePage.activityTitle.ja}</GreyH3>
         <ActivitiesWrapper>
           {sanityOurActivities.activities.map(activity => (
             <ActivityWrapper key={activity.ourActivity.ja}>
-              <StyledImg
-                fluid={activity.ourActivityImage.image.asset.fluid}
-                alt={activity.ourActivityImage.caption.ja}
-                key={activity.ourActivityImage.caption.ja}
-              />
-              <StyledAnchor>{activity.ourActivity.ja}</StyledAnchor>
+              <StyledAnchor href={activity.link}>
+                <StyledImg
+                  fluid={activity.ourActivityImage.image.asset.fluid}
+                  alt={activity.ourActivityImage.caption.ja}
+                  key={activity.ourActivityImage.caption.ja}
+                />
+                <UnderlinedText href={activity.link}>
+                  {activity.ourActivity.ja}
+                </UnderlinedText>
+              </StyledAnchor>
             </ActivityWrapper>
           ))}
         </ActivitiesWrapper>
@@ -119,7 +111,7 @@ const OurActivities = () => {
             />
           </Text>
         </Wrapper>
-      </Container>
+      </Wrapper>
     </ColourDiv>
   )
 }

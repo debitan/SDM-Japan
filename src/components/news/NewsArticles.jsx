@@ -6,7 +6,7 @@ import ColumnWrapper from "../shared/ColumnWrapper"
 import StyledAnchor from "../shared/StyledAnchor"
 import ContainerCentre from "../shared/ContainerCentre"
 import GreyH3 from "../shared/GreyH3"
-import Link from "../shared/Link"
+import UnderlinedLink from "../shared/UnderlinedLink"
 import { NarrowCoverImage, WideCoverImage } from "../shared/Images"
 import BlueButton from "../shared/BlueButton"
 import WhiteButton from "../shared/WhiteButton"
@@ -16,23 +16,31 @@ const Wrapper = styled(ColumnWrapper)`
   align-items: center;
   justify-content: flex-start;
 
-  @media (min-width: 980px) {
+  div:nth-child(odd) {
+    margin: 0 1rem 1rem 0;
+  }
+
+  @media (min-width: 480px) {
     flex-direction: row;
   }
 `
 
 const LeftWrapper = styled(ColumnWrapper)`
-  width: 40rem;
-  max-width: 100%;
+  max-width: 20rem;
+
+  @media (min-width: 768px) {
+    width: 30rem;
+  }
 `
 
 const RightWrapper = styled(ColumnWrapper)`
   width: 100%;
-  align-items: flex-start;
+  align-items: center;
 
-  @media (min-width: 980px) {
-    padding: 2rem 0;
+  @media (min-width: 768px) {
+    align-items: flex-start;
     margin-left: 2rem;
+    padding: 2rem 0;
   }
 `
 
@@ -43,16 +51,7 @@ const Tag = styled("span")`
 
 const Metadata = styled("span")`
   font-size: 0.8rem;
-  margin: 0.5rem 0;
-`
-
-const BorderContainer = styled(ContainerCentre)`
-  border-top: ${props =>
-    props.border ? "0.4rem solid rgb(137, 234, 234)" : "none"};
-`
-
-const UnderlinedLink = styled(Link)`
-  text-decoration: underline;
+  align-self: flex-start;
 `
 
 const ButtonWrapper = styled("div")`
@@ -68,7 +67,7 @@ const ButtonWrapper = styled("div")`
   }
 `
 
-const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
+const NewsArticles = ({ data, title, link, limit = 10 }) => {
   const [offset, setOffset] = useState(0)
 
   const total = data.articles.length
@@ -88,7 +87,7 @@ const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
   const slicedData = sortedData.slice(offset, max)
 
   return (
-    <BorderContainer border={border} id="#top">
+    <ContainerCentre id="#top">
       {!link && (
         <ButtonWrapper>
           {offset !== 0 && (
@@ -131,7 +130,7 @@ const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
             </LeftWrapper>
             <RightWrapper>
               <Metadata>
-                {formatDate(article.date)}
+                <span>{formatDate(article.date)}</span>
                 {article.tag ? <Tag>{article.tag.ja}</Tag> : null}
               </Metadata>
               <p>{article.title.ja}</p>
@@ -166,7 +165,7 @@ const NewsArticles = ({ data, border, title, link, limit = 10 }) => {
       <ColumnWrapper>
         {link && <UnderlinedLink href="/news">ニュース一覧</UnderlinedLink>}
       </ColumnWrapper>
-    </BorderContainer>
+    </ContainerCentre>
   )
 }
 

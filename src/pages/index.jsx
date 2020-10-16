@@ -52,13 +52,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Header />
       <Events />
-      <NewsArticles
-        data={sanityNews}
-        border={true}
-        title={true}
-        link={true}
-        limit={3}
-      />
+      <NewsArticles data={sanityNews} title={true} link={true} limit={3} />
       <SupportedDecisionMaking />
       <About />
       <OurActivities />
