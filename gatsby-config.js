@@ -26,7 +26,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-googlemaps-static`,
+      resolve: `@ccalamos/gatsby-source-googlemaps-static`,
       options: {
         key: process.env.GOOGLE_MAPS_STATIC_API_KEY,
         center: `2C79+VH Sado, 新潟県 Japan`,
@@ -40,14 +40,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-web-font-loader`,
       options: {
-        fonts: [
-          {
-            family: `M PLUS Rounded 1c`,
-            variants: [`400`, `500`, `600`, `700`],
-          },
-        ],
+        google: {
+          families: [`M PLUS Rounded 1c`],
+        },
       },
     },
     `gatsby-plugin-smoothscroll`,
