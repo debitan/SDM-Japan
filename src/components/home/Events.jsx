@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
+import moment from "moment"
 
 import RowWrapper from "../shared/RowWrapper"
 import ColumnWrapper from "../shared/ColumnWrapper"
@@ -9,6 +10,7 @@ import ContainerCentre from "../shared/ContainerCentre"
 import StyledAnchor from "../shared/StyledAnchor"
 import GreyH3 from "../shared/GreyH3"
 import { WideCoverImage, NarrowCoverImage } from "../shared/Images"
+import UnderlinedLink from "../shared/UnderlinedLink"
 import serializers from "../serializers"
 
 const EventsWrapper = styled(RowWrapper)`
@@ -44,6 +46,7 @@ const NormalText = styled("p")`
 
 const TextAlignedContainer = styled(ContainerCentre)`
   text-align: center;
+  max-width: 1080px;
 `
 
 const Events = () => {
@@ -114,8 +117,15 @@ const Events = () => {
       <EventsWrapper>
         {sanityEventsPage.event
           .filter(event => Date.parse(event.startDate) < Date.now())
+          .sort((a, b) => {
+            a = moment(a.startDate).format()
+            b = moment(b.startDate).format()
+            return a > b ? -1 : a < b ? 1 : 0
+          })
+          .slice(0, 6)
           .map(event => (
             <StyledAnchor href="/events/" key={event.title.ja}>
+              {console.log(`${event.title.ja} - ${event.startDate}`)}
               <EventWrapper>
                 <ImageWrapper>
                   {event.image.image.asset._rawMetadata.dimensions.aspectRatio >
@@ -147,6 +157,10 @@ const Events = () => {
       </EventsWrapper>
       <br />
       <p>
+        <ColumnWrapper>
+          <UnderlinedLink href="/events">イベント一覧</UnderlinedLink>
+          <br />
+        </ColumnWrapper>
         <BlockContent
           blocks={sanityEventsPage._rawEventBody.ja}
           serializers={serializers}

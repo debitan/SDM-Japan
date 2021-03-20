@@ -6,10 +6,10 @@ import ColumnWrapper from "../shared/ColumnWrapper"
 import StyledAnchor from "../shared/StyledAnchor"
 import ContainerCentre from "../shared/ContainerCentre"
 import GreyH3 from "../shared/GreyH3"
-import Link from "../shared/Link"
 import { NarrowCoverImage, WideCoverImage } from "../shared/Images"
 import BlueButton from "../shared/BlueButton"
 import WhiteButton from "../shared/WhiteButton"
+import UnderlinedLink from "../shared/UnderlinedLink"
 import scrollTo from "gatsby-plugin-smoothscroll"
 
 const Wrapper = styled(ColumnWrapper)`
@@ -49,10 +49,6 @@ const Metadata = styled("span")`
 const BorderContainer = styled(ContainerCentre)`
   border-top: ${props =>
     props.border ? "0.4rem solid rgb(137, 234, 234)" : "none"};
-`
-
-const UnderlinedLink = styled(Link)`
-  text-decoration: underline;
 `
 
 const ButtonWrapper = styled("div")`
