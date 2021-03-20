@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
+import moment from "moment"
 
 import serializers from "./serializers"
 import ContainerCentre from "./shared/ContainerCentre"
@@ -145,78 +146,84 @@ const PublishedMedia = () => {
 
   return (
     <PublicationsContainer>
-      {sanityEventsPage.event.map(event => (
-        <PublicationWrapper key={event.title.ja}>
-          <ContentWrapper>
-            <ImageWrapper>
-              {event.image.image.asset._rawMetadata.dimensions.aspectRatio >
-              1 ? (
-                <WideCoverImage
-                  fluid={event.image.image.asset.fluid}
-                  alt={event.image.caption.ja}
-                />
-              ) : (
-                <NarrowCoverImage
-                  fluid={event.image.image.asset.fluid}
-                  alt={event.image.caption.ja}
-                />
-              )}
-            </ImageWrapper>
-            <DescriptionWrapper>
-              <BlueTitles>{event.title.ja}</BlueTitles>
-              {event.date.map(date => (
-                <BlueTitles key={date.ja}>{date.ja}</BlueTitles>
-              ))}
-              <DescriptionGrid>
-                <span>{event.locationTitle.ja}</span>
-                <p>
-                  <BlockContent
-                    blocks={event._rawLocation.ja}
-                    serializers={serializers}
+      {sanityEventsPage.event
+        .sort((a, b) => {
+          a = moment(a.startDate).format()
+          b = moment(b.startDate).format()
+          return a > b ? -1 : a < b ? 1 : 0
+        })
+        .map(event => (
+          <PublicationWrapper key={event.title.ja}>
+            <ContentWrapper>
+              <ImageWrapper>
+                {event.image.image.asset._rawMetadata.dimensions.aspectRatio >
+                1 ? (
+                  <WideCoverImage
+                    fluid={event.image.image.asset.fluid}
+                    alt={event.image.caption.ja}
                   />
-                </p>
-                <span>{event.priceTitle.ja}</span>
-                <p>
-                  <BlockContent
-                    blocks={event._rawPrice.ja}
-                    serializers={serializers}
+                ) : (
+                  <NarrowCoverImage
+                    fluid={event.image.image.asset.fluid}
+                    alt={event.image.caption.ja}
                   />
-                </p>
-                <span>{event.audienceTitle.ja}</span>
-                <p>
-                  <BlockContent
-                    blocks={event._rawAudience.ja}
-                    serializers={serializers}
-                  />
-                </p>
-                <span>{event.capacityTitle.ja}</span>
-                <p>
-                  <BlockContent
-                    blocks={event._rawCapacity.ja}
-                    serializers={serializers}
-                  />
-                </p>
-              </DescriptionGrid>
-              <div>
-                <span>{event.contentsTitle.ja}</span>
-                {event.contents.map(item => (
-                  <ContentsWrapper key={item.ja}>
-                    <GreenCheck src={Check} />
-                    <p>{item.ja}</p>
-                  </ContentsWrapper>
+                )}
+              </ImageWrapper>
+              <DescriptionWrapper>
+                <BlueTitles>{event.title.ja}</BlueTitles>
+                {event.date.map(date => (
+                  <BlueTitles key={date.ja}>{date.ja}</BlueTitles>
                 ))}
-              </div>
-              <EventLink
-                href={event.link.url}
-                target="_blank"
-                key={event.link.url}
-              >
-                <BlueButton>{event.link.link.ja}</BlueButton>
-              </EventLink>
-            </DescriptionWrapper>
-          </ContentWrapper>
-        </PublicationWrapper>
-      ))}
+                <DescriptionGrid>
+                  <span>{event.locationTitle.ja}</span>
+                  <p>
+                    <BlockContent
+                      blocks={event._rawLocation.ja}
+                      serializers={serializers}
+                    />
+                  </p>
+                  <span>{event.priceTitle.ja}</span>
+                  <p>
+                    <BlockContent
+                      blocks={event._rawPrice.ja}
+                      serializers={serializers}
+                    />
+                  </p>
+                  <span>{event.audienceTitle.ja}</span>
+                  <p>
+                    <BlockContent
+                      blocks={event._rawAudience.ja}
+                      serializers={serializers}
+                    />
+                  </p>
+                  <span>{event.capacityTitle.ja}</span>
+                  <p>
+                    <BlockContent
+                      blocks={event._rawCapacity.ja}
+                      serializers={serializers}
+                    />
+                  </p>
+                </DescriptionGrid>
+                <div>
+                  <span>{event.contentsTitle.ja}</span>
+                  {event.contents.map(item => (
+                    <ContentsWrapper key={item.ja}>
+                      <GreenCheck src={Check} />
+                      <p>{item.ja}</p>
+                    </ContentsWrapper>
+                  ))}
+                </div>
+                <EventLink
+                  href={event.link.url}
+                  target="_blank"
+                  key={event.link.url}
+                >
+                  <BlueButton>{event.link.link.ja}</BlueButton>
+                </EventLink>
+              </DescriptionWrapper>
+            </ContentWrapper>
+          </PublicationWrapper>
+        ))}
       <BodyText>
         <BlockContent
           blocks={sanityEventsPage._rawEventBody.ja}
