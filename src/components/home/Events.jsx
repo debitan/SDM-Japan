@@ -116,12 +116,12 @@ const Events = () => {
       <EventsWrapper>
         {sanityEventsPage.event
           .filter(event => Date.parse(event.startDate) < Date.now())
-          .slice(0, 6)
           .sort((a, b) => {
-            a = moment(a.date).format()
-            b = moment(b.date).format()
+            a = moment(a.startDate).format()
+            b = moment(b.startDate).format()
             return a > b ? -1 : a < b ? 1 : 0
           })
+          .slice(0, 6)
           .map(event => (
             <StyledAnchor href="/events/" key={event.title.ja}>
               {console.log(`${event.title.ja} - ${event.startDate}`)}
