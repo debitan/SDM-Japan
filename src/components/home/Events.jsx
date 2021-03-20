@@ -10,6 +10,7 @@ import ContainerCentre from "../shared/ContainerCentre"
 import StyledAnchor from "../shared/StyledAnchor"
 import GreyH3 from "../shared/GreyH3"
 import { WideCoverImage, NarrowCoverImage } from "../shared/Images"
+import UnderlinedLink from "../shared/UnderlinedLink"
 import serializers from "../serializers"
 
 const EventsWrapper = styled(RowWrapper)`
@@ -156,7 +157,10 @@ const Events = () => {
       </EventsWrapper>
       <br />
       <p>
-        // TODO: Add a see more button here that links to the event page
+        <ColumnWrapper>
+          <UnderlinedLink href="/events">イベント一覧</UnderlinedLink>
+          <br />
+        </ColumnWrapper>
         <BlockContent
           blocks={sanityEventsPage._rawEventBody.ja}
           serializers={serializers}
