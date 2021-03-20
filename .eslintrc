@@ -1,3 +1,10 @@
 {
-  "extends": ["kentcdodds", "kentcdodds/jsx-a11y"]
+  "extends": ["kentcdodds", "kentcdodds/jsx-a11y", "plugin:react/recommended"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
 }
