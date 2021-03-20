@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
+import moment from "moment"
 
 import RowWrapper from "../shared/RowWrapper"
 import ColumnWrapper from "../shared/ColumnWrapper"
@@ -44,6 +45,7 @@ const NormalText = styled("p")`
 
 const TextAlignedContainer = styled(ContainerCentre)`
   text-align: center;
+  max-width: 1080px;
 `
 
 const Events = () => {
@@ -114,8 +116,15 @@ const Events = () => {
       <EventsWrapper>
         {sanityEventsPage.event
           .filter(event => Date.parse(event.startDate) < Date.now())
+          .slice(0, 6)
+          .sort((a, b) => {
+            a = moment(a.date).format()
+            b = moment(b.date).format()
+            return a > b ? -1 : a < b ? 1 : 0
+          })
           .map(event => (
             <StyledAnchor href="/events/" key={event.title.ja}>
+              {console.log(`${event.title.ja} - ${event.startDate}`)}
               <EventWrapper>
                 <ImageWrapper>
                   {event.image.image.asset._rawMetadata.dimensions.aspectRatio >
@@ -147,6 +156,7 @@ const Events = () => {
       </EventsWrapper>
       <br />
       <p>
+        // TODO: Add a see more button here that links to the event page
         <BlockContent
           blocks={sanityEventsPage._rawEventBody.ja}
           serializers={serializers}
