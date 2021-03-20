@@ -84,7 +84,7 @@ const Donation = () => {
                 />
               </p>
               <StyledAnchor
-                href="https://readyfor.jp/projects/talkingmats"
+                href="https://readyfor.jp/projects/talkingmats-children"
                 target="_blank"
               >
                 <DonationButton>
