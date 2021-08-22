@@ -39,14 +39,7 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-web-font-loader`,
-      options: {
-        google: {
-          families: [`M PLUS Rounded 1c`],
-        },
-      },
-    },
+    `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-plugin-google-analytics`,
