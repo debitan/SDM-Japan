@@ -29,11 +29,11 @@ module.exports = {
       resolve: `@ccalamos/gatsby-source-googlemaps-static`,
       options: {
         key: process.env.GOOGLE_MAPS_STATIC_API_KEY,
-        center: `36.111188177172096, 140.10131095194868`,
+        center: `2C79+VH Sado, 新潟県 Japan`,
         zoom: "13",
         markers: [
           {
-            location: `36.111188177172096, 140.10131095194868`,
+            location: `2C79+VH Sado, 新潟県 Japan`,
             color: `red`,
           },
         ],
